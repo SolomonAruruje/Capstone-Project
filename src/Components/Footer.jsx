@@ -25,7 +25,7 @@ const Footer = () => {
                   <div className=''>
                       <p className='mb-1.5'>Get 10% off your first order</p>
                       <form action="" method="post" className='bg-[#000000] text-white items-center flex justify-around rounded h-[40px] w-[210px] border border-white'>
-                          <input type="email" placeholder='Enter your email' className='text-white w-[150px]' />
+                          <input type="email" placeholder='Enter your email' className='text-white w-[150px] focus:outline-none' />
                           <button type="submit" className=''><img src={sendIcon} alt="" /></button>
                       </form>
                   </div>

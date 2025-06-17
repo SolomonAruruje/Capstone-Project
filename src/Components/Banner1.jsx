@@ -124,7 +124,7 @@ const Banner1 = () => {
                     ref={buttonRef}
                     id='dropdownButton'
                     type='button'
-                    className='hover:scale-115 hover:text-shadow-lg/20 transition duration-150 ease-in-out flex'
+                    className='hover:text-shadow-lg/20 transition duration-150 ease-in-out flex'
                     onClick={toggleDropdown}
                     >
                     Women's Fashion
@@ -147,10 +147,10 @@ const Banner1 = () => {
                     tabIndex='-1'
                     >
                     <div className='py-1' role='none'>
-                        <a href='/women-adult' className='text-[#000000] hover:scale-115 hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-0'>
+                        <a href='/women-adult' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-0'>
                         Adult
                         </a>
-                        <a href='/women-kids' className='text-[#000000] hover:scale-115 hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-1'>
+                        <a href='/women-kids' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-1'>
                         Kids
                         </a>
                     </div>
@@ -161,7 +161,7 @@ const Banner1 = () => {
                     ref={buttonRef2}
                     id='dropdownButton2'
                     type='button'
-                    className='hover:scale-115 hover:text-shadow-lg/20 transition duration-150 ease-in-out flex'
+                    className='hover:text-shadow-lg/20 transition duration-150 ease-in-out flex'
                     onClick={toggleDropdown2}
                     >
                     Men's Fashion
@@ -184,22 +184,22 @@ const Banner1 = () => {
                     tabIndex='-1'
                     >
                     <div className='py-1' role='none'>
-                        <a href='/men-adult' className='text-[#000000] hover:scale-115 hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-01'>
+                        <a href='/men-adult' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-01'>
                         Adult
                         </a>
-                        <a href='/men-kids' className='text-[#000000] hover:scale-115 hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-02'>
+                        <a href='/men-kids' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-02'>
                         Kids
                         </a>
                     </div>
                     </div>
                 </a>
-                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Electronics</a>
-                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Home & Lifestyle</a>
-                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Medicine</a>
-                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Sports & Outdoor</a>
-                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Baby's & Toys</a>
-                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Groceries & Pets</a>
-                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Health & Beauty</a>
+                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Electronics</a>
+                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Home & Lifestyle</a>
+                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Medicine</a>
+                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Sports & Outdoor</a>
+                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Baby's & Toys</a>
+                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Groceries & Pets</a>
+                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Health & Beauty</a>
             </div>
             <div className='md:ml-5 md:w-[75%] bg-[#000000]'>
             <div id='1st' className='hidden' >
