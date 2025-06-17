@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import appleLogo from '../assets/applelogo.svg'
 import rightArrow from '../assets/rightarrow.svg'
 import Phone from '../assets/applephone.svg'
+import rightDrop from '../assets/rightdrop.svg';
 
 const Banner1 = () => {
     useEffect(() => {
@@ -59,22 +60,148 @@ const Banner1 = () => {
         }, []);
 
 
+        const [isOpen, setIsOpen] = useState(false);
+        
+          const dropdownRef = useRef(null);
+          const buttonRef = useRef(null);
+        
+          useEffect(() => {
+            const handleClickOutside = (event) => {
+              if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target) &&
+                buttonRef.current &&
+                !buttonRef.current.contains(event.target)
+              ) {
+                setIsOpen(false);
+              }
+            };
+        
+            document.addEventListener('mousedown', handleClickOutside);
+            return () => {
+              document.removeEventListener('mousedown', handleClickOutside);
+            };
+          }, []);
+        
+          const toggleDropdown = () => {
+            setIsOpen(!isOpen);
+          };
+
+        const [isOpen2, setIsOpen2] = useState(false);
+        
+          const dropdownRef2 = useRef(null);
+          const buttonRef2 = useRef(null);
+        
+          useEffect(() => {
+            const handleClickOutside = (event) => {
+              if (
+                dropdownRef2.current &&
+                !dropdownRef2.current.contains(event.target) &&
+                buttonRef2.current &&
+                !buttonRef2.current.contains(event.target)
+              ) {
+                setIsOpen2(false);
+              }
+            };
+        
+            document.addEventListener('mousedown', handleClickOutside);
+            return () => {
+              document.removeEventListener('mousedown', handleClickOutside);
+            };
+          }, []);
+        
+          const toggleDropdown2 = () => {
+            setIsOpen2(!isOpen2);
+          };
+
   return (
-    <div className='h-[100%] w-[96%] justify-self-center border'>
+    <div className='h-[100%] w-[96%] justify-self-center'>
         <div className='my-5 h-[85%]'>
             <div className='flex flex-col md:flex-row '>
-            <div className='md:w-[20%] flex flex-col gap-2 pr-7 border-r'>
-                <a href="" className='mb-1.5'>Women's Fashion</a>
-                <a href="" className='mb-1.5'>Men's Fashion</a>
-                <a href="" className='mb-1.5'>Electronics</a>
-                <a href="" className='mb-1.5'>Home & Lifestyle</a>
-                <a href="" className='mb-1.5'>Medicine</a>
-                <a href="" className='mb-1.5'>Sports & Outdoor</a>
-                <a href="" className='mb-1.5'>Baby's & Toys</a>
-                <a href="" className='mb-1.5'>Groceries & Pets</a>
-                <a href="" className='mb-1.5'>Health & Beauty</a>
+            <div className='md:w-[25%] text-[16px] font-normal flex flex-grow flex-col gap-2 pr-7 border-r'>
+                <a className='mb-1.5 inline-flex relative'>
+                    <button
+                    ref={buttonRef}
+                    id='dropdownButton'
+                    type='button'
+                    className='hover:scale-115 hover:text-shadow-lg/20 transition duration-150 ease-in-out flex'
+                    onClick={toggleDropdown}
+                    >
+                    Women's Fashion
+                    <img
+                        src={rightDrop}
+                        alt=''
+                        className='ml-10 w-2 text-[#000000]'
+                        aria-hidden='true'
+                    />
+                    </button>
+
+                    <div
+                    ref={dropdownRef}
+                    id='dropdownDiv'
+                    className={`origin-bottom-left absolute left-40 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none transform transition ease-out duration-200
+                        ${isOpen ? 'opacity-100 scale-100' : 'hidden opacity-0 scale-95'}`}
+                    role='menu'
+                    aria-orientation='vertical'
+                    aria-labelledby='dropdownButton'
+                    tabIndex='-1'
+                    >
+                    <div className='py-1' role='none'>
+                        <a href='/women-adult' className='text-[#000000] hover:scale-115 hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-0'>
+                        Adult
+                        </a>
+                        <a href='/women-kids' className='text-[#000000] hover:scale-115 hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-1'>
+                        Kids
+                        </a>
+                    </div>
+                    </div>
+                </a>
+                <a className='mb-1.5 inline-flex flex-grow relative'>
+                    <button
+                    ref={buttonRef2}
+                    id='dropdownButton2'
+                    type='button'
+                    className='hover:scale-115 hover:text-shadow-lg/20 transition duration-150 ease-in-out flex'
+                    onClick={toggleDropdown2}
+                    >
+                    Men's Fashion
+                    <img
+                        src={rightDrop}
+                        alt=''
+                        className='ml-10 w-2 text-[#000000]'
+                        aria-hidden='true'
+                    />
+                    </button>
+
+                    <div
+                    ref={dropdownRef2}
+                    id='dropdownDiv2'
+                    className={`origin-bottom-left absolute left-40 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none transform transition ease-out duration-200
+                        ${isOpen2 ? 'opacity-100 scale-100' : 'hidden opacity-0 scale-95'}`}
+                    role='menu'
+                    aria-orientation='vertical'
+                    aria-labelledby='dropdownButton2'
+                    tabIndex='-1'
+                    >
+                    <div className='py-1' role='none'>
+                        <a href='/men-adult' className='text-[#000000] hover:scale-115 hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-01'>
+                        Adult
+                        </a>
+                        <a href='/men-kids' className='text-[#000000] hover:scale-115 hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-02'>
+                        Kids
+                        </a>
+                    </div>
+                    </div>
+                </a>
+                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Electronics</a>
+                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Home & Lifestyle</a>
+                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Medicine</a>
+                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Sports & Outdoor</a>
+                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Baby's & Toys</a>
+                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Groceries & Pets</a>
+                <a href="" className='hover:scale-115 hover:text-shadow-lg/20 mb-1.5'>Health & Beauty</a>
             </div>
-            <div className='md:ml-7 md:w-[80%] bg-[#000000]'>
+            <div className='md:ml-5 md:w-[75%] bg-[#000000]'>
             <div id='1st' className='hidden' >
                 <div>
                 <div className='flex flex-col md:flex-row justify-between  text-white'>
@@ -89,7 +216,7 @@ const Banner1 = () => {
                 </div>
             </div> 
             </div>
-             <div id='2nd' className='hidden' >
+             <div id='2nd' className='hidden bg-amber-950' >
                 <div>
                 <div className='flex flex-col md:flex-row justify-between  text-white'>
                     <div className='flex flex-col p-10'>

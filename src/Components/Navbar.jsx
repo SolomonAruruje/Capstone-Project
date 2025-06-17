@@ -9,8 +9,8 @@ const Navbar = () => {
      const [mobile, setMobile] = useState(false)
 
   return (
-        <nav>
-      <div className="hidden md:flex justify-between justify-items-stretch md:px-7 md:pt-8 md:pb-3 border-b border-gray-300">
+        <nav className='border-b border-gray-300'>
+      <div className="hidden md:flex justify-between justify-items-stretch md:px-7 md:pt-8 md:pb-3 ">
         <div className="flex hover:scale-115 items-center gap-2">
         <a href="">
             <img src={Logo} width={36} />
@@ -21,23 +21,23 @@ const Navbar = () => {
             </a>
           </h3>
         </div>
-        <div className="flex items-center gap-5 text-lg text-[#000000]">
-            <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal mr-4">
+        <div className="flex items-center gap-0 xl:gap-5 text-lg text-[#000000]">
+            <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal lg:mr-4">
                     <a href="/">
                         Home
                     </a>
                 </h5>
-                <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal mr-4">
+                <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal lg:mr-4">
                     <a href="/Contact">
                         Contact
                     </a>
                 </h5>
-                <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal mr-4">
+                <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal lg:mr-4">
                     <a href="/About">
                         About
                     </a>
                 </h5>
-                <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal mr-4">
+                <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal lg:mr-4">
                     <a href="/SignUp">
                         Sign Up
                     </a>
