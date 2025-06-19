@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import leftButton from '../assets/leftbutton.svg'
 import rightButton from '../assets/rightbutton.svg'
-// import datejson from '../../public/datew.json'
+import pimg1 from '../assets/gamepad.svg'
+
 
 const FlashSales = () => {
     const [targetDate, setTargetDate] = useState(null);
@@ -50,7 +51,9 @@ const FlashSales = () => {
   }, []);
 
 
-  const calculateTimeLeft = () => {
+
+
+  const calculateTimeLeft = useCallback(() => {
 
     if (targetDate === null) {
       return { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -71,8 +74,8 @@ const FlashSales = () => {
     const s = Math.floor((difference % (1000 * 60)) / 1000);
 
     return { days: d, hours: h, minutes: m, seconds: s };
-  };
-  
+  }, [targetDate]);
+
   useEffect(() => {
     
     if (targetDate === null || isLoading || error) {
@@ -98,7 +101,7 @@ const FlashSales = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate, isCountingDown, isLoading, error]);
+  }, [targetDate, isCountingDown, isLoading, error, calculateTimeLeft]);
 
   const formatTime = (time) => String(time).padStart(2, '0');
 
@@ -106,10 +109,11 @@ const FlashSales = () => {
     <div className='w-[96%] items-center justify-self-center'>
         <div>
             <div className='flex flex-col flex-wrap w-full' >
-                <div>
-
+                <div className='flex w-full space-x-5 items-center'>
+                    <div class='w-[30px] bg-[#DB4444] min-h-15 text-transparent'>G</div>
+                    <div className=''><p className='text-[16px] text-[#DB4444] font-semibold '>Today's</p></div>
                 </div>
-                <div className='flex w-full justify-between items-center'>
+                <div className='flex flex-col md:flex-row w-full justify-between items-center'>
                     <h3 className='text-[32px] font-bold'>Flash Sales</h3>
                     <div>
                         {error ? (
@@ -118,7 +122,7 @@ const FlashSales = () => {
                         <div className="text-[16px] font-bold text-gray-400">Loading timer data...</div>
                         ) : (
                         isCountingDown ? (
-                            <div className="flex items-center space-x-3 md:space-x-3">
+                            <div className="flex items-center space-x-2">
                             {/* Days section */}
                             <div className="flex flex-col items-center">
                                 <span className="text-[16px] font-normal mb-0 text-[#000000]">Days</span>
@@ -163,16 +167,22 @@ const FlashSales = () => {
                         )}
                     </div>
                     <div className='flex items-center justify justify-self-end'>
-                        <button><img src={leftButton} alt="" className='mr-2'/></button>
-                        <button><img src={rightButton} alt=""/></button>
+                        <button id='scrollLeft'><img src={leftButton} alt="" className='mr-2'/></button>
+                        <button id='scrollRight'><img src={rightButton} alt=""/></button>
                     </div>
                 </div>
             </div>
-            <div>
-
+            <div className='mt-10'>
+                <div className='grid grid-cols-2 md:grid-cols-4 gap-5 mt-10'>
+                    <div className='bg-[#F5F5F5] rounded-lg p-5'>
+                        <img src={pimg1} alt="Product 1" className='w-full h-[150px] object-cover rounded-md mb-3'/>
+                        <h4 className='text-[16px] font-semibold'>Product 1</h4>
+                        <p className='text-[14px] text-gray-600'>$19.99</p>
+                    </div>
+                </div>
             </div>
-            <div>
-
+            <div className='justify-self-center items-center mt-15'>
+                <button className='text-white rounded rounded-sm py-3 px-10 bg-[#DB4444]'>View All Products</button>
             </div>
         </div>
     </div>
