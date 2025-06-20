@@ -1,10 +1,138 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import leftButton from '../assets/leftbutton.svg'
 import rightButton from '../assets/rightbutton.svg'
+import ProductDiscount from './ProductDiscount'
 import pimg1 from '../assets/gamepad.svg'
+import ThreeStars from './ThreeStars'
+
 
 
 const FlashSales = () => {
+    const scrollContainerRef = useRef(null);
+    
+    const products = [
+      {
+          id: 1,
+          discountPercentage: "-40%",
+          productName: 'HAVIT HV-G92 Gamepad',
+          price: "160",
+          discountPrice: "120",
+          productImage: pimg1,
+          rateno: "(88)",
+          ratingStars: <ThreeStars/>,
+      },
+      {
+          id: 2,
+          discountPercentage: "-20%",
+          productName: 'Gamepad',
+          price: "160",
+          discountPrice: "120",
+          productImage: pimg1,
+          rateno: "(88)",
+          ratingStars: <ThreeStars/>,
+      },
+      {
+          id: 3,
+          discountPercentage: "-40%",
+          productName: 'HAVIT HV-G92 Gamepad',
+          price: "160",
+          discountPrice: "120",
+          productImage: pimg1,
+          rateno: "(88)",
+          ratingStars: <ThreeStars/>,
+      },
+      {
+          id: 4,
+          discountPercentage: "-40%",
+          productName: 'HAVIT HV-G92 Gamepad',
+          price: "160",
+          discountPrice: "120",
+          productImage: pimg1,
+          rateno: "(88)",
+          ratingStars: <ThreeStars/>,
+      },
+      {
+          id: 5,
+          discountPercentage: "-40%",
+          productName: 'HAVIT HV-G92 Gamepad',
+          price: "160",
+          discountPrice: "120",
+          productImage: pimg1,
+          rateno: "(88)",
+          ratingStars: <ThreeStars/>,
+      },
+      {
+          id: 6,
+          discountPercentage: "-40%",
+          productName: 'HAVIT HV-G92 Gamepad',
+          price: "160",
+          discountPrice: "120",
+          productImage: pimg1,
+          rateno: "(88)",
+          ratingStars: <ThreeStars/>,
+      },
+      {
+          id: 7,
+          discountPercentage: "-40%",
+          productName: 'HAVIT HV-G92 Gamepad',
+          price: "160",
+          discountPrice: "120",
+          productImage: pimg1,
+          rateno: "(88)",
+          ratingStars: <ThreeStars/>,
+      },
+      {
+          id: 8,
+          discountPercentage: "-40%",
+          productName: 'HAVIT HV-G92 Gamepad',
+          price: "160",
+          discountPrice: "120",
+          productImage: pimg1,
+          rateno: "(88)",
+          ratingStars: <ThreeStars/>,
+      },
+      {
+          id: 9,
+          discountPercentage: "-40%",
+          productName: 'HAVIT HV-G92 Gamepad',
+          price: "160",
+          discountPrice: "120",
+          productImage: pimg1,
+          rateno: "(88)",
+          ratingStars: <ThreeStars/>,
+      },
+      {
+          id: 10,
+          discountPercentage: "-40%",
+          productName: 'HAVIT HV-G92 Gamepad',
+          price: "160",
+          discountPrice: "120",
+          productImage: pimg1,
+          rateno: "(88)",
+          ratingStars: <ThreeStars/>,
+      },
+    ]
+
+    const scrollAmount = 300;
+    const scrollLeft = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    const scrollRight = () => {
+        if (scrollContainerRef.current) {
+            scrollContainerRef.current.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+
     const [targetDate, setTargetDate] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     
@@ -106,7 +234,7 @@ const FlashSales = () => {
   const formatTime = (time) => String(time).padStart(2, '0');
 
     return (
-    <div className='w-[96%] items-center justify-self-center'>
+    <div className='w-[96%] my-8 items-center justify-self-center'>
         <div>
             <div className='flex flex-col flex-wrap w-full' >
                 <div className='flex w-full space-x-5 items-center'>
@@ -167,22 +295,27 @@ const FlashSales = () => {
                         )}
                     </div>
                     <div className='flex items-center justify justify-self-end'>
-                        <button id='scrollLeft'><img src={leftButton} alt="" className='mr-2'/></button>
-                        <button id='scrollRight'><img src={rightButton} alt=""/></button>
+                        <button id='scrollLeft'><img onClick={scrollLeft} src={leftButton} alt="" className='mr-2 w-[46px]'/></button>
+                        <button id='scrollRight'><img onClick={scrollRight} src={rightButton} alt="" className='w-[46px]'/></button>
                     </div>
                 </div>
             </div>
-            <div className='mt-10'>
-                <div className='grid grid-cols-2 md:grid-cols-4 gap-5 mt-10'>
-                    <div className='bg-[#F5F5F5] rounded-lg p-5'>
-                        <img src={pimg1} alt="Product 1" className='w-full h-[150px] object-cover rounded-md mb-3'/>
-                        <h4 className='text-[16px] font-semibold'>Product 1</h4>
-                        <p className='text-[14px] text-gray-600'>$19.99</p>
-                    </div>
-                </div>
+            <div ref={scrollContainerRef} className='mt-5 flex items-center w-full overflow-x-hidden whitespace-nowrap scroll-smooth no-scrollbar'>
+                 {products.map((item) => (
+                    <ProductDiscount
+                        key={item.id}
+                        discountPercentage={item.discountPercentage}
+                        productName={item.productName}
+                        price={item.price}
+                        discountPrice={item.discountPrice}
+                        productImage={item.productImage}
+                        rateno={item.rateno}
+                        ratingStars={item.ratingStars}
+                    />
+                 ))}
             </div>
-            <div className='justify-self-center items-center mt-15'>
-                <button className='text-white rounded rounded-sm py-3 px-10 bg-[#DB4444]'>View All Products</button>
+            <div className='justify-self-center items-center mt-10'>
+                <button className='text-white rounded-sm py-3 px-10 bg-[#DB4444]'>View All Products</button>
             </div>
         </div>
     </div>
