@@ -12,7 +12,7 @@ import qrcode from '../assets/Qrcode 1.svg'
 const Footer = () => {
   return (
     <div>
-      <footer className='hidden text-white bg-[#000000] md:flex flex-wrap flex-col md:px-3'>
+      <footer className='text-white bg-[#000000] md:flex flex-wrap flex-col md:px-3'>
             <div className='flex flex-wrap gap-4 md:gap-0 text-[16px] justify-self-center font-normal lg:flex-row  p-10 m-3'>
                 <div className='w-full md:w-1/3 lg:w-1/5 flex-wrap'>
                   <a href='/' className='flex items-center mb-2.5'>
