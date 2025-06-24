@@ -9,7 +9,7 @@ import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const LogIn = () => {
-    const { login } = useAuth(); // <--- Get the login function from context
+    const { login } = useAuth();
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -36,7 +36,7 @@ const LogIn = () => {
         setMessageType('');
 
         try {
-            // **IMPORTANT: Replace with your actual backend login API endpoint**
+            //Replace with backend login API endpoint**
             const backendLoginUrl = 'http://localhost:3000/api/login';
 
             const response = await fetch(backendLoginUrl, {
@@ -53,12 +53,10 @@ const LogIn = () => {
                 setMessageType('success');
                 console.log('Login Success:', result);
 
-                // **Handle successful login using AuthContext:**
-                // Assuming your backend returns { token: 'jwt_token', user: { id: '...', name: '...', email: '...' } }
-                login(result.token, result.user); // <--- Use AuthContext's login
+                login(result.token, result.user);
 
                 setTimeout(() => {
-                    navigate('/'); // <--- Redirect using navigate
+                    navigate('/');
                 }, 1500);
 
             } else {
@@ -106,10 +104,10 @@ const LogIn = () => {
                 console.log('Google Auth Success:', result);
 
 
-                login(result.token, result.user); // <--- Use AuthContext's login
+                login(result.token, result.user);
 
                 setTimeout(() => {
-                    navigate('/'); // <--- Redirect using navigate
+                    navigate('/');
                 }, 1500);
 
             } else {
@@ -206,13 +204,12 @@ const LogIn = () => {
                                 render={renderProps => (
                                     <button onClick={renderProps.onClick} disabled={renderProps.disabled} className='w-full rounded py-[16px] border border-gray-300 text-[16px] font-medium text-gray-700 flex items-center justify-center disabled:bg-gray-100'>
                                         <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google logo" className="mr-2" />
-                                        <span>Login with Google</span> {/* Changed text for clarity */}
+                                        <span>Login with Google</span>
                                     </button>
                                 )}
                             />
                         </div>
 
-                        {/* Link to Create Account */}
                         <div className="text-center mt-4">
                             <p className="text-gray-600">Don't have an account? <Link to="/SignUp" className="text-[#DB4444] hover:underline">Sign Up</Link></p>
                         </div>

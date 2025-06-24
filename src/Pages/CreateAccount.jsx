@@ -37,7 +37,7 @@ const CreateAccount = () => {
 
         try {
             // Replace with your actual backend API endpoint for email/password registration
-            const backendUrl = 'http://localhost:3000/api/register-email-password'; // Example endpoint
+            const backendUrl = 'http://localhost:3000/api/register-email-password';
 
             const response = await fetch(backendUrl, {
                 method: 'POST',
@@ -53,16 +53,14 @@ const CreateAccount = () => {
                 setMessageType('success');
                 console.log('Account Creation Success:', result);
 
-                login(result.token, result.user); // <--- Use AuthContext's login
+                login(result.token, result.user);
 
-                // Clear the form data after successful registration
                 setFormData({
                     name: '',
                     email: '',
                     password: ''
                 });
 
-                // Redirect the user to a dashboard or home page after a short delay
                 setTimeout(() => {
                     navigate('/');
                 }, 1500);
@@ -94,8 +92,8 @@ const CreateAccount = () => {
             const decodedToken = jwtDecode(idToken);
             console.log('Decoded Google JWT:', decodedToken);
 
-            // Send the ID token to your backend for verification and user creation/login
-            const backendGoogleAuthUrl = 'http://localhost:3000/api/auth/google'; // Your backend endpoint for Google auth
+            // Send the Google ID token to your backend for verification and user creation/login
+            const backendGoogleAuthUrl = 'http://localhost:3000/api/auth/google';
 
             const response = await fetch(backendGoogleAuthUrl, {
                 method: 'POST',
@@ -111,13 +109,10 @@ const CreateAccount = () => {
                 setMessageType('success');
                 console.log('Google Auth Success:', result);
 
-                // Assuming your backend returns { token: 'jwt_token', user: { id: '...', name: '...', email: '...' } }
-                // Call the login function from AuthContext to set the user as logged in
-                login(result.token, result.user); // <--- Use AuthContext's login
+                login(result.token, result.user);
 
-                // Redirect the user to a dashboard or home page after a short delay
                 setTimeout(() => {
-                    navigate('/'); // <--- Redirect using navigate
+                    navigate('/');
                 }, 1500);
 
             } else {
@@ -141,8 +136,6 @@ const CreateAccount = () => {
         console.error('Google Login Failed');
     };
 
-    // IMPORTANT: Replace with your actual Google Client ID from Google Cloud Console
-    // For production, use environment variables (e.g., process.env.REACT_APP_GOOGLE_CLIENT_ID)
     const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
     return (
