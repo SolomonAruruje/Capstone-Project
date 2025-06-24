@@ -4,6 +4,7 @@ import Responsive from '../assets/responsive.svg'
 import Search from '../assets/Vector.svg'
 import cart from '../assets/Cart1.svg'
 import wishlist from '../assets/Wishlist.svg'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
      const [mobile, setMobile] = useState(false)
@@ -12,40 +13,40 @@ const Navbar = () => {
         <nav className='border-b border-gray-300'>
       <div className="hidden md:flex justify-between justify-items-stretch md:px-7 md:pt-8 md:pb-3 ">
         <div className="flex hover:scale-115 items-center gap-2">
-        <a href="">
+        <Link to="/">
             <img src={Logo} width={36} />
-        </a>
+        </Link>
           <h3 className="text-2xl font-bold">
-            <a href="/">
+            <Link to="/">
                 EasyCart
-            </a>
+            </Link>
           </h3>
         </div>
         <div className="flex items-center gap-0 xl:gap-5 text-lg text-[#000000]">
             <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal lg:mr-4">
-                    <a href="/">
+                    <Link to="/">
                         Home
-                    </a>
+                    </Link>
                 </h5>
                 <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal lg:mr-4">
-                    <a href="/Contact">
+                    <Link to="/Contact">
                         Contact
-                    </a>
+                    </Link>
                 </h5>
                 <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal lg:mr-4">
-                    <a href="/About">
+                    <Link to="/About">
                         About
-                    </a>
+                    </Link>
                 </h5>
                 <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal lg:mr-4">
-                    <a href="/SignUp">
+                    <Link to="/SignUp">
                         Sign Up
-                    </a>
+                    </Link>
                 </h5>
                 <h5 className="hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal">
-                    <a href="/LogIn">
+                    <Link to="/LogIn">
                         Log In
-                    </a>
+                    </Link>
                 </h5>
         </div>
         <div className="flex items-center text-lg justify-items-end">
@@ -56,27 +57,27 @@ const Navbar = () => {
                 </button>
             </form>
             <div className='flex flex-row '>
-                <a href="#" className='mx-2.5'>
+                <Link to="#" className='mx-2.5'>
                     <img src={wishlist} className="hover:scale-115"></img>
-                </a>
-                <a href="#" className=''>
+                </Link>
+                <Link to="#" className=''>
                     <img src={cart} className="hover:scale-115"></img>
-                </a>
+                </Link>
             </div>
         </div>
       </div>
 
       <div className="flex md:hidden justify-between my-5">
         <div className="flex items-center">
-            <a href="">
+            <Link to="/">
                 <button type='button'>
                     <img src={Logo} width={36} />
                 </button>
-            </a>
+            </Link>
           <h5 className="text-2xl font-semibold">
-            <a href="/">
+            <Link to="/">
                 EasyCart
-            </a>
+            </Link>
           </h5>
         </div>
 
@@ -96,29 +97,29 @@ const Navbar = () => {
        {mobile &&  <>
             <div className='block md:hidden text-lg text-[#4F5665]'>
                 <h5 className="mb-2.5 hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal mr-4">
-                    <a href="/">
+                    <Link to="/">
                         Home
-                    </a>
+                    </Link>
                 </h5>
                 <h5 className="mb-2.5 hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal mr-4">
-                    <a href="/Contact">
+                    <Link to="/Contact">
                         Contact
-                    </a>
+                    </Link>
                 </h5>
                 <h5 className="mb-2.5 hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal mr-4">
-                    <a href="/About">
+                    <Link to="/About">
                         About
-                    </a>
+                    </Link>
                 </h5>
                 <h5 className="mb-2.5 hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal mr-4">
-                    <a href="/SignUp">
+                    <Link to="/SignUp">
                         Sign Up
-                    </a>
+                    </Link>
                 </h5>
                 <h5 className="mb-2.5 hover:scale-115 hover:text-shadow-lg/20 text-[16px] font-normal">
-                    <a href="/LogIn">
+                    <Link to="/LogIn">
                         Log In
-                    </a>
+                    </Link>
                 </h5>
             </div>
             <div className="flex flex-col md:hidden text-lg justify-items-end">
@@ -129,12 +130,12 @@ const Navbar = () => {
                 </button>
             </form>
             <div className='flex flex-row '>
-                <a href="#" className='mx-2.5'>
+                <Link to="#" className='mx-2.5'>
                     <img src={wishlist} className="hover:scale-115"></img>
-                </a>
-                <a href="#" className=''>
+                </Link>
+                <Link to="#" className=''>
                     <img src={cart} className="hover:scale-115"></img>
-                </a>
+                </Link>
             </div>
             </div>
         </>}
