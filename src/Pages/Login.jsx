@@ -2,22 +2,24 @@ import React, { useState } from 'react';
 import NavBar from '../Components/Navbar.jsx';
 import Footer from '../Components/Footer.jsx';
 import sideImage from '../assets/SideImage.svg';
-
-// For Google Login
+import { Link } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import { jwtDecode } from 'jwt-decode'; // Ensure you have jwt-decode installed: npm install jwt-decode
+import { jwtDecode } from 'jwt-decode';
+import { useAuth } from '../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const LogIn = () => {
-    // State for traditional login form (only email and password needed for login)
+    const { login } = useAuth(); // <--- Get the login function from context
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
-    const [messageType, setMessageType] = useState(''); // 'success' or 'error'
+    const [messageType, setMessageType] = useState('');
 
-    // Update form data on input change
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
@@ -26,12 +28,11 @@ const LogIn = () => {
         }));
     };
 
-    // --- Traditional Email/Password Login ---
     const handleLoginSubmit = async (e) => {
-        e.preventDefault(); // Prevent default browser form submission
+        e.preventDefault();
 
         setLoading(true);
-        setMessage(''); // Clear previous messages
+        setMessage('');
         setMessageType('');
 
         try {
@@ -42,9 +43,8 @@ const LogIn = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Add any other headers like CSRF tokens if needed for security
                 },
-                body: JSON.stringify(formData) // Send email and password
+                body: JSON.stringify(formData)
             });
 
             if (response.ok) {
@@ -53,17 +53,12 @@ const LogIn = () => {
                 setMessageType('success');
                 console.log('Login Success:', result);
 
-                // **Handle successful login:**
-                // 1. Store the authentication token (JWT, session ID) received from backend.
-                //    This token is crucial for authenticating future requests.
-                //    Example: localStorage.setItem('authToken', result.token);
-                // 2. Redirect the user to a dashboard or home page.
-                //    Example: window.location.href = '/dashboard'; or use React Router's navigate
+                // **Handle successful login using AuthContext:**
+                // Assuming your backend returns { token: 'jwt_token', user: { id: '...', name: '...', email: '...' } }
+                login(result.token, result.user); // <--- Use AuthContext's login
+
                 setTimeout(() => {
-                    // Example: history.push('/dashboard'); // If using react-router-dom
-                    // For a simple redirect:
-                    alert("Login successful! Welcome back.");
-                    // window.location.href = '/'; // Or your dashboard page
+                    navigate('/'); // <--- Redirect using navigate
                 }, 1500);
 
             } else {
@@ -88,9 +83,8 @@ const LogIn = () => {
         setMessageType('');
 
         try {
-            const idToken = credentialResponse.credential; // Google's JWT token
+            const idToken = credentialResponse.credential;
 
-            // Optional: Decode on frontend for immediate display or debugging
             const decodedToken = jwtDecode(idToken);
             console.log('Decoded Google JWT:', decodedToken);
 
@@ -107,16 +101,15 @@ const LogIn = () => {
 
             if (response.ok) {
                 const result = await response.json();
-                setMessage('Logged in with Google successfully!');
+                setMessage('Logged in with Google successfully! Redirecting...');
                 setMessageType('success');
                 console.log('Google Auth Success:', result);
-                // **Handle successful Google login:**
-                // 1. Store your application's authentication token (returned from backend).
-                //    Example: localStorage.setItem('authToken', result.token);
-                // 2. Redirect the user.
+
+
+                login(result.token, result.user); // <--- Use AuthContext's login
+
                 setTimeout(() => {
-                    alert("Logged in with Google! Welcome back.");
-                    // window.location.href = '/'; // Or your dashboard page
+                    navigate('/'); // <--- Redirect using navigate
                 }, 1500);
 
             } else {
@@ -145,26 +138,23 @@ const LogIn = () => {
     const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
 
     return (
-        // Wrap your component with GoogleOAuthProvider for Google Login to work
         <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
             <div>
                 <NavBar />
                 <div className='flex justify-around items-center my-20'>
                     <div className='mr-10'>
-                        <img src={sideImage} alt="" className='w-[750px]' />
+                        <img src={sideImage} alt="Login Illustration" className='w-[750px]' />
                     </div>
                     <div className='flex flex-col w-[370px] space-y-6'>
                         <h2 className='text-[36px]/[36px] font-medium w-full'>Log In to EasyCart</h2>
                         <h4 className='text-[16px] font-normal w-full'>Enter your details below</h4>
 
-                        {/* Display success/error messages */}
                         {message && (
                             <div className={`py-2 px-4 rounded ${messageType === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
                                 {message}
                             </div>
                         )}
 
-                        {/* Traditional Login Form */}
                         <form onSubmit={handleLoginSubmit} className='space-y-7 w-full'>
                             <div className='w-full border-b'>
                                 <input
@@ -188,7 +178,7 @@ const LogIn = () => {
                                     type="password"
                                     name="password"
                                     placeholder="Password"
-                                    autoComplete='current-password' // Use 'current-password' for login
+                                    autoComplete='current-password'
                                     required
                                 />
                             </div>
@@ -207,19 +197,26 @@ const LogIn = () => {
                         {/* <div className="relative flex items-center py-5">
                             <div className="flex-grow border-t border-gray-300"></div>
                             <span className="flex-shrink mx-4 text-gray-500 text-sm">OR</span>
-                            <div className="flex-grow border-t border-gray-300"></div> */}
-                        
+                            <div className="flex-grow border-t border-gray-300"></div>
+                        </div> */}
+
                         {/* Google Sign-In Button */}
                         <div className='w-full flex justify-center'>
                             <GoogleLogin
                                 onSuccess={handleGoogleSuccess}
                                 onError={handleGoogleError}
+                                render={renderProps => (
+                                    <button onClick={renderProps.onClick} disabled={renderProps.disabled} className='w-full rounded py-[16px] border border-gray-300 text-[16px] font-medium text-gray-700 flex items-center justify-center disabled:bg-gray-100'>
+                                        <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google logo" className="mr-2" />
+                                        <span>Login with Google</span> {/* Changed text for clarity */}
+                                    </button>
+                                )}
                             />
                         </div>
 
                         {/* Link to Create Account */}
                         <div className="text-center mt-4">
-                            <p className="text-gray-600">Don't have an account? <a href="/SignUp" className="text-[#DB4444] hover:underline">Sign Up</a></p>
+                            <p className="text-gray-600">Don't have an account? <Link to="/SignUp" className="text-[#DB4444] hover:underline">Sign Up</Link></p>
                         </div>
                     </div>
                 </div>

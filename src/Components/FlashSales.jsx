@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import leftButton from '../assets/leftbutton.svg';
 import rightButton from '../assets/rightbutton.svg';
-import ProductDiscount from './ProductDiscount';
+import Product from './Product';
 import { Link } from 'react-router-dom';
 
 const FlashSales = () => {
@@ -214,9 +214,11 @@ const FlashSales = () => {
                         <div className="text-[16px] font-normal text-gray-600 w-full text-center">No flash sales active right now. Check back soon!</div>
                     ) : (
                         products.map((item) => (
-                            <ProductDiscount
+                            <Product
                                 key={item.id}
+                                id={item.id}
                                 discountPercentage={item.discountPercentage}
+                                colour={item.colour}
                                 productName={item.productName}
                                 price={item.price}
                                 discountPrice={item.discountPrice}

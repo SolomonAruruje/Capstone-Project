@@ -1,47 +1,33 @@
 [
     {
         "id": 1,
+        "category": "Camera",
         "discountPercentage": "-40%",
+        "colour": "#DB4444",
         "productName": "HAVIT HV-G92 Gamepad",
         "price": "160",
         "discountPrice": "120",
         "productImage": "/gamepad.svg",
         "rateno": "(88)",
-        "ratingStars": "4.5"
+        "ratingStars": "5"
     },
-    {
+        {
         "id": 2,
-        "discountPercentage": "-20%",
-        "productName": "Wireless Mouse X",
-        "price": "50",
-        "discountPrice": "40",
+        "category": "Phones",
+        "discountPercentage": "-40%",
+        "colour": "#DB4444",
+        "productName": "HAVIT HV-G92 Gamepad",
+        "price": "160",
+        "discountPrice": "120",
         "productImage": "/gamepad.svg",
         "rateno": "(88)",
         "ratingStars": "5"
     },
-    {
+        {
         "id": 3,
+        "category": "HeadPhones",
         "discountPercentage": "-40%",
-        "productName": "HAVIT HV-G92 Gamepad",
-        "price": "160",
-        "discountPrice": "120",
-        "productImage": "/gamepad.svg",
-        "rateno": "(88)",
-        "ratingStars": "5"
-    },
-    {
-        "id": 4,
-        "discountPercentage": "-40%",
-        "productName": "HAVIT HV-G92 Gamepad",
-        "price": "160",
-        "discountPrice": "120",
-        "productImage": "/gamepad.svg",
-        "rateno": "(88)",
-        "ratingStars": "5"
-    },
-    {
-        "id": 5,
-        "discountPercentage": "-40%",
+        "colour": "#DB4444",
         "productName": "HAVIT HV-G92 Gamepad",
         "price": "160",
         "discountPrice": "120",
@@ -49,54 +35,88 @@
         "rateno": "(88)",
         "ratingStars": "4.5"
     },
-    {
+        {
+        "id": 4,
+        "category": "SmartWatches",
+        "discountPercentage": "-40%",
+        "colour": "#DB4444",
+        "productName": "HAVIT HV-G92 Gamepad",
+        "price": "160",
+        "discountPrice": "120",
+        "productImage": "/gamepad.svg",
+        "rateno": "(88)",
+        "ratingStars": "4.5"
+    },
+        {
+        "id": 5,
+        "category": "Computers",
+        "discountPercentage": "-40%",
+        "colour": "#DB4444",
+        "productName": "HAVIT HV-G92 Gamepad",
+        "price": "160",
+        "discountPrice": "120",
+        "productImage": "/gamepad.svg",
+        "rateno": "(88)",
+        "ratingStars": "4.5"
+    },
+        {
         "id": 6,
+        "category": "Gaming",
         "discountPercentage": "-40%",
+        "colour": "#DB4444",
         "productName": "HAVIT HV-G92 Gamepad",
         "price": "160",
         "discountPrice": "120",
         "productImage": "/gamepad.svg",
         "rateno": "(88)",
-        "ratingStars": "5"
+        "ratingStars": "4.5"
     },
-    {
+        {
         "id": 7,
+        "category": "Phones",
         "discountPercentage": "-40%",
+        "colour": "#DB4444",
         "productName": "HAVIT HV-G92 Gamepad",
         "price": "160",
         "discountPrice": "120",
         "productImage": "/gamepad.svg",
         "rateno": "(88)",
-        "ratingStars": "5"
+        "ratingStars": "4.5"
     },
-    {
+        {
         "id": 8,
+        "category": "Camera",
         "discountPercentage": "-40%",
+        "colour": "#DB4444",
         "productName": "HAVIT HV-G92 Gamepad",
         "price": "160",
         "discountPrice": "120",
         "productImage": "/gamepad.svg",
         "rateno": "(88)",
-        "ratingStars": "5"
+        "ratingStars": "4.5"
     },
-    {
+        {
         "id": 9,
+        "category": "Computers",
         "discountPercentage": "-40%",
+        "colour": "#DB4444",
         "productName": "HAVIT HV-G92 Gamepad",
         "price": "160",
         "discountPrice": "120",
         "productImage": "/gamepad.svg",
         "rateno": "(88)",
-        "ratingStars": "5"
+        "ratingStars": "4.5"
     },
-    {
+        {
         "id": 10,
+        "category": "HeadPhones",
         "discountPercentage": "-40%",
+        "colour": "#DB4444",
         "productName": "HAVIT HV-G92 Gamepad",
         "price": "160",
         "discountPrice": "120",
         "productImage": "/gamepad.svg",
         "rateno": "(88)",
-        "ratingStars": "5"
+        "ratingStars": "4.5"
     }
 ]

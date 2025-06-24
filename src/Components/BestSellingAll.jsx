@@ -1,30 +1,11 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
-import BestSellingProdDiv from './BestSellingProdDiv.jsx';
+import React, { useState, useEffect, useRef } from 'react';
+import Product from './Product.jsx';
 
 const BestSellingAll = () => {
       const scrollContainerRef = useRef(null);
     const [products, setProducts] = useState([]);
     const [loadingProducts, setLoadingProducts] = useState(true);
     const [errorProducts, setErrorProducts] = useState(null);
-
-    const scrollAmount = 270;
-    const scrollLeft = () => {
-        if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    };
-
-    const scrollRight = () => {
-        if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    };
 
 
     useEffect(() => {
@@ -39,7 +20,7 @@ const BestSellingAll = () => {
                 const data = await response.json();
                 setProducts(data);
             } catch (err) {
-                console.error('Failed to fetch flash sales products:', err);
+                console.error('Failed to fetch Best Selling products:', err);
                 setErrorProducts(`Failed to load products: ${err.message}.`);
                 setProducts([]);
             } finally {
@@ -74,7 +55,7 @@ const BestSellingAll = () => {
                         <div className="text-[16px] font-normal text-gray-600 w-full text-center">No flash sales active right now. Check back soon!</div>
                     ) : (
                         products.map((item) => (
-                            <BestSellingProdDiv
+                            <Product
                                 key={item.id}
                                 discountPercentage={item.discountPercentage}
                                 productName={item.productName}

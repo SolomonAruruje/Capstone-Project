@@ -8,9 +8,16 @@
   font-style: normal;
 }
 
-:root {
-  margin: 0px 40px;
+  :root {
+    margin: 0px 5px;
+  }
+
+@media (min-width: 768px) {
+  :root {
+    margin: 0px 40px;
+  }
 }
+
 
 .no-scrollbar::-webkit-scrollbar {
     display: none;

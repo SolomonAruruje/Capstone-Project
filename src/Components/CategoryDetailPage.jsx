@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Product from './Product';
+import Product from './Product.jsx';
 import NavBar from './Navbar';
 import Footer from './Footer';
 
@@ -59,15 +59,14 @@ const CategoryDetailPage = () => {
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
                     {products.map((item) => (
-                        <Product // <--- Changed component name here
+                        <Product
                             key={item.id}
                             id={item.id}
                             productName={item.productName}
-                            price={item.price}
+                            discountPrice={item.discountPrice}
                             productImage={item.productImage}
                             rateno={item.rateno}
                             rating={item.ratingStars}
-                            // Add any other props your Product component expects
                         />
                     ))}
                 </div>

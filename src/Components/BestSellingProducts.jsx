@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
-import BestSellingProdDiv from './BestSellingProdDiv';
+import React, { useState, useEffect, useRef } from 'react';
+import Product from './Product.jsx';
 import { Link } from 'react-router-dom';
 
 const BestSellingProducts = () => {
@@ -7,25 +7,6 @@ const BestSellingProducts = () => {
       const [bestSellingProd, setBestSellingProd] = useState([]);
       const [loadingBestSellingProd, setLoadingBestSellingProd] = useState(true);
       const [errorBestSellingProd, setErrorBestSellingProd] = useState(null);
-  
-      const scrollAmount = 270;
-      const scrollLeft = () => {
-          if (scrollContainerRef.current) {
-              scrollContainerRef.current.scrollBy({
-                  left: -scrollAmount,
-                  behavior: 'smooth'
-              });
-          }
-      };
-  
-      const scrollRight = () => {
-          if (scrollContainerRef.current) {
-              scrollContainerRef.current.scrollBy({
-                  left: scrollAmount,
-                  behavior: 'smooth'
-              });
-          }
-      };
   
   
       useEffect(() => {
@@ -80,7 +61,7 @@ const BestSellingProducts = () => {
                           <div className="text-[16px] font-normal text-gray-600 w-full text-center">No BestSellingProd active right now. Check back soon!</div>
                       ) : (
                           bestSellingProd.map((item) => (
-                              <BestSellingProdDiv
+                              <Product
                                 key={item.id}
                                 id={item.id }
                                 productName={item.productName}

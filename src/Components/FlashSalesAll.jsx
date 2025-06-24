@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import leftButton from '../assets/leftbutton.svg';
 import rightButton from '../assets/rightbutton.svg';
-import ProductDiscount from './ProductDiscount';
+import Product from './Product';
 
 
 const FlashSalesAll = () => {
@@ -214,7 +214,7 @@ const FlashSalesAll = () => {
                         <div className="text-[16px] font-normal text-gray-600 w-full text-center">No flash sales active right now. Check back soon!</div>
                     ) : (
                         products.map((item) => (
-                            <ProductDiscount
+                            <Product
                                 key={item.id}
                                 discountPercentage={item.discountPercentage}
                                 productName={item.productName}
