@@ -5,6 +5,7 @@ import Footer from '../Components/Footer.jsx';
 import FlashSales from '../Components/FlashSales.jsx';
 import Categories from '../Components/Category.jsx'
 import BestSellingProducts from '../Components/BestSellingProducts.jsx';
+import OurProducts from '../Components/OurProducts.jsx';
 // import Test from '../Components/test.jsx';
 
 const Homepage = () => {
@@ -15,7 +16,7 @@ const Homepage = () => {
         <FlashSales/>
         <Categories/>
         <BestSellingProducts/>
-        
+        <OurProducts/>
         <Footer/>
     </div>
   )

@@ -62,8 +62,8 @@ const Navbar = () => {
                     )}
                 </div>
                 <div className="flex items-center text-lg justify-items-end">
-                    <form name='searchBar' className='hover:shadow bg-[#F5F5F5] mr-1.5 w-[243px] py-1.5 px-2 rounded text-[12px] font-normal items-center flex'>
-                        <input type='search' placeholder='What are you looking for?' className='w-[243px] focus:outline-none' />
+                    <form className='hover:shadow bg-[#F5F5F5] mr-1.5 w-[243px] py-1.5 px-2 rounded text-[12px] font-normal items-center flex'>
+                        <input name='searchBar' type='search' placeholder='What are you looking for?' className='w-[243px] focus:outline-none' />
                         <button type='submit'>
                             <img src={Search} alt="Search Icon" />
                         </button>
@@ -182,8 +182,8 @@ const Navbar = () => {
                             </h5>
                         )}
                         <div className="flex flex-col md:hidden text-lg justify-items-end mt-4">
-                            <form name='searchBar' className='mb-2.5 hover:shadow bg-[#F5F5F5] mr-2 w-full py-1.5 px-2 rounded text-[12px] font-normal items-center flex'>
-                                <input type='search' placeholder='What are you looking for?' className='w-full focus:outline-none' />
+                            <form  className='mb-2.5 hover:shadow bg-[#F5F5F5] mr-2 w-full py-1.5 px-2 rounded text-[12px] font-normal items-center flex'>
+                                <input name='searchBar' type='search' placeholder='What are you looking for?' className='w-full focus:outline-none' />
                                 <button type='submit'>
                                     <img src={Search} alt="Search Icon" />
                                 </button>

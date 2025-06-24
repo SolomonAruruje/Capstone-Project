@@ -15,15 +15,14 @@ const CategoryDetailPage = () => {
             setLoading(true);
             setError(null);
             try {
-                // Fetch ALL products (or your category-filtered endpoint)
-                const response = await fetch('/products.json'); // Adjust this path to your products data
+                // Fetch ALL products from backend
+                const response = await fetch('/products.json')
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const allProducts = await response.json();
 
-                // Filter products by categoryName (case-insensitive for robustness)
-                // You'll need a 'category' property on your product objects in products.json
+                // Filter products by categoryName
                 const filteredProducts = allProducts.filter(
                     (product) => product.category && product.category.toLowerCase() === categoryName.toLowerCase()
                 );

@@ -6,8 +6,8 @@ import CategoryDetailPage from '../src/Components/CategoryDetailPage.jsx';
 import BestSellingProductsAll from '../src/Pages/BestSellingProductsAll.jsx';
 import CreateAccount from './Pages/CreateAccount.jsx';
 import LogIn from './Pages/Login.jsx';
-// import Error404 from './pages/Error404';
-
+import AllProductsPage from './Pages/AllProductsPage.jsx'
+// import Error404 from './pP
 
 const App = () => {
   return (
@@ -19,6 +19,7 @@ const App = () => {
         <Route path='/best-selling' element={<BestSellingProductsAll/>}/>
         <Route path="/SignUp" element={<CreateAccount/>} />
         <Route path="/LogIn" element={<LogIn/>} />
+        <Route path="/explore-products" element={<AllProductsPage />} /> 
         {/* <Route path="*" element={<Error404 />} /> */}
       </Routes>
     </Router>

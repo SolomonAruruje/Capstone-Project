@@ -213,7 +213,7 @@ const FlashSales = () => {
                     ) : products.length === 0 ? (
                         <div className="text-[16px] font-normal text-gray-600 w-full text-center">No flash sales active right now. Check back soon!</div>
                     ) : (
-                        products.map((item) => (
+                        products.slice(0, 10).map((item) => (
                             <Product
                                 key={item.id}
                                 id={item.id}

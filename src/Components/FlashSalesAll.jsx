@@ -204,7 +204,7 @@ const FlashSalesAll = () => {
                 </div>
                 <div
                     ref={scrollContainerRef}
-                    className='my-10 flex flex-wrap justify-self-center items-center'
+                    className='my-10 flex flex-col md:flex-row md:flex-wrap items-center'
                 >
                     {loadingProducts ? (
                         <div className="text-[16px] font-bold text-gray-400 w-full text-center">Loading flash sales products...</div>

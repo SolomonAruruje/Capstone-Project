@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Product from './Product.jsx';
 
-const BestSellingAll = () => {
+const AllProducts = () => {
       const scrollContainerRef = useRef(null);
     const [products, setProducts] = useState([]);
     const [loadingProducts, setLoadingProducts] = useState(true);
@@ -13,15 +13,15 @@ const BestSellingAll = () => {
             setLoadingProducts(true);
             setErrorProducts(null);
             try {
-                const response = await fetch('/flashsales.json');
+                const response = await fetch('/products.json');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
                 setProducts(data);
             } catch (err) {
-                console.error('Failed to fetch Best Selling products:', err);
-                setErrorProducts(`Failed to load products: ${err.message}.`);
+                console.error('Failed to fetch All products:', err);
+                setErrorProducts(`Failed to load All products: ${err.message}.`);
                 setProducts([]);
             } finally {
                 setLoadingProducts(false);
@@ -38,10 +38,10 @@ const BestSellingAll = () => {
                 <div className='flex flex-col flex-wrap w-full' >
                     <div className='flex w-full space-x-5 items-center'>
                         <div className='w-[30px] bg-[#DB4444] min-h-15 text-transparent'>G</div>
-                        <div className=''><p className='text-[16px] text-[#DB4444] font-semibold '>This Month</p></div>
+                        <div className=''><p className='text-[16px] text-[#DB4444] font-semibold '>Our Products</p></div>
                     </div>
                     <div className='flex flex-col md:flex-row w-full justify-between items-center'>
-                        <h3 className='text-[32px] font-bold'>Best Selling Products</h3>
+                        <h3 className='text-[32px] font-bold'>Explore Our Products</h3>
                 </div>
                 <div
                     ref={scrollContainerRef}
@@ -57,9 +57,10 @@ const BestSellingAll = () => {
                         products.map((item) => (
                             <Product
                                 key={item.id}
+                                id={item.id}
                                 discountPercentage={item.discountPercentage}
+                                colour={item.colour}
                                 productName={item.productName}
-                                price={item.price}
                                 discountPrice={item.discountPrice}
                                 productImage={item.productImage}
                                 rateno={item.rateno}
@@ -74,4 +75,4 @@ const BestSellingAll = () => {
     );
 };
 
-export default BestSellingAll
+export default AllProducts
