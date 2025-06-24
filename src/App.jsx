@@ -1,15 +1,22 @@
 import React from 'react'
-import { Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomePage from '../src/Pages/Homepage.jsx';
-// import AboutPage from '../src/Pages/About.jsx';
+import FlashSalesViewAllPage from '../src/Pages/FlashSalesViewAll.jsx';
+import CategoryDetailPage from '../src/Components/CategoryDetailPage.jsx';
+import BestSellingProductsAll from '../src/Pages/BestSellingProductsAll.jsx';
 // import ContactPage from '../src/Pages/Contact.jsx';
 
 
 const App = () => {
   return (
-    <div>
-        <HomePage/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/flash-sales" element={<FlashSalesViewAllPage />} />
+        <Route path="/categories/:categoryName" element={<CategoryDetailPage />} />
+        <Route path='/best-selling' element={<BestSellingProductsAll/>}/>
+      </Routes>
+    </Router>
   )
 }
 

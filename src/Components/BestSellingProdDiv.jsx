@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 import wishlist from '../assets/wishlist2.svg';
 import quickView from '../assets/quickview.svg';
 import Stars from './Stars';
 
-const ProductDiscount = ({
+
+const BestSellingProdDiv = ({
     id,
-    discountPercentage = "-40%",
     productName = 'HAVIT HV-G92 Gamepad',
     price = "160",
     discountPrice = "120",
@@ -19,7 +19,6 @@ const ProductDiscount = ({
             <div className='items-center flex group overflow-hidden cursor-pointer gap-5  bg-[#F5F5F5] relative rounded-sm p-5 w-[270px] h-[250px] '>
                 <img src={productImage} alt={`Image of ${productName}`} className='absolute w-[172px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'/>
                 <button className='h-[41px] text-white text-[16px] font-medium opacity-100 w-full bottom-0 left-0 right-0 transition-opacity duration-300 pointer-events-auto absolute lg:opacity-0 lg:pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto bg-[#000000]'>Add To Cart</button>
-                <p className='absolute top-2 left-2 bg-[#DB4444] px-2 py-1 text-white rounded text-[12px] font-normal'>{discountPercentage}</p>
                 <div className='flex flex-col space-y-2 absolute right-2 top-2 items-center'>
                     <button><img src={wishlist} alt="Add to Wishlist" className='rounded-xl w-[34px]' /></button>
                     <button><img src={quickView} alt="Quick View" className='rounded-xl w-[34px]' /></button>
@@ -38,4 +37,4 @@ const ProductDiscount = ({
   );
 };
 
-export default ProductDiscount;
+export default BestSellingProdDiv

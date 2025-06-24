@@ -49,7 +49,7 @@ const Navbar = () => {
                 </h5>
         </div>
         <div className="flex items-center text-lg justify-items-end">
-            <form className='hover:shadow bg-[#F5F5F5] mr-2 w-[243px] py-1.5 px-2 rounded text-[12px] font-normal items-center flex'>
+            <form name='searchBar' className='hover:shadow bg-[#F5F5F5] mr-2 w-[243px] py-1.5 px-2 rounded text-[12px] font-normal items-center flex'>
               <input type='search' placeholder='What are you looking for?' className='w-[243px] focus:outline-none'></input>
                 <button type='submit'>
                     <img src={Search} alt="" />
@@ -122,7 +122,7 @@ const Navbar = () => {
                 </h5>
             </div>
             <div className="flex flex-col md:hidden text-lg justify-items-end">
-            <form className='mb-2.5 hover:shadow bg-[#F5F5F5] mr-2 w-[243px] py-1.5 px-2 rounded text-[12px] font-normal items-center flex'>
+            <form name='searchBar' className='mb-2.5 hover:shadow bg-[#F5F5F5] mr-2 w-[243px] py-1.5 px-2 rounded text-[12px] font-normal items-center flex'>
               <input type='search' placeholder='What are you looking for?' className='w-[243px] focus:outline-none'></input>
                 <button type='submit'>
                     <img src={Search} alt="" />

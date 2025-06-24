@@ -119,7 +119,7 @@ const Banner1 = () => {
         <div className='my-5 h-[85%]'>
             <div className='flex flex-col md:flex-row '>
             <div className='md:w-[25%] text-[16px] font-normal flex flex-grow flex-col gap-2 pr-7 border-r'>
-                <a className='mb-1.5 inline-flex relative'>
+                <span className='mb-1.5 inline-flex relative'>
                     <button
                     ref={buttonRef}
                     id='dropdownButton'
@@ -155,8 +155,8 @@ const Banner1 = () => {
                         </a>
                     </div>
                     </div>
-                </a>
-                <a className='mb-1.5 inline-flex flex-grow relative'>
+                </span>
+                <span className='mb-1.5 inline-flex flex-grow relative'>
                     <button
                     ref={buttonRef2}
                     id='dropdownButton2'
@@ -192,7 +192,7 @@ const Banner1 = () => {
                         </a>
                     </div>
                     </div>
-                </a>
+                </span>
                 <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Electronics</a>
                 <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Home & Lifestyle</a>
                 <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Medicine</a>

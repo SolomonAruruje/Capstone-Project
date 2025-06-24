@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1,
+        "categoriesName" : "Phones",
+        "categoriesImage" : "/cellphone.svg"
+    },
+    {
+        "id": 2,
+        "categoriesName" : "Camera",
+        "categoriesImage" : "/cellphone.svg"
+    },
+    {
+        "id": 3,
+        "categoriesName" : "SmartWatches",
+        "categoriesImage" : "/cellphone.svg"
+    },
+    {
+        "id": 4,
+        "categoriesName" : "Computers",
+        "categoriesImage" : "/cellphone.svg"
+    },
+    {
+        "id": 5,
+        "categoriesName" : "Gaming",
+        "categoriesImage" : "/cellphone.svg"
+    },
+    {
+        "id": 6,
+        "categoriesName" : "Phones",
+        "categoriesImage" : "/cellphone.svg"
+    },
+    {
+        "id": 7,
+        "categoriesName" : "Camera",
+        "categoriesImage" : "/cellphone.svg"
+    },
+
+    {
+        "id": 8,
+        "categoriesName" : "HeadPhones",
+        "categoriesImage" : "/cellphone.svg"
+    },
+    {
+        "id": 9,
+        "categoriesName" : "Computers",
+        "categoriesImage" : "/cellphone.svg"
+    }
+]

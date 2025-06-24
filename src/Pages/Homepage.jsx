@@ -3,6 +3,8 @@ import Navbar from '../Components/Navbar.jsx';
 import Banner1 from '../Components/Banner1.jsx';
 import Footer from '../Components/Footer.jsx';
 import FlashSales from '../Components/FlashSales.jsx';
+import Categories from '../Components/Category.jsx'
+import BestSellingProducts from '../Components/BestSellingProducts.jsx';
 // import Test from '../Components/test.jsx';
 
 const Homepage = () => {
@@ -11,6 +13,9 @@ const Homepage = () => {
         <Navbar/>
         <Banner1/>
         <FlashSales/>
+        <Categories/>
+        <BestSellingProducts/>
+        
         <Footer/>
     </div>
   )

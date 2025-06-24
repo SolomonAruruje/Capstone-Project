@@ -2,9 +2,9 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import leftButton from '../assets/leftbutton.svg';
 import rightButton from '../assets/rightbutton.svg';
 import ProductDiscount from './ProductDiscount';
-import { Link } from 'react-router-dom';
 
-const FlashSales = () => {
+
+const FlashSalesAll = () => {
     const scrollContainerRef = useRef(null);
     const [products, setProducts] = useState([]);
     const [loadingProducts, setLoadingProducts] = useState(true);
@@ -146,7 +146,7 @@ const FlashSales = () => {
             <div>
                 <div className='flex flex-col flex-wrap w-full' >
                     <div className='flex w-full space-x-5 items-center'>
-                        <div className='w-[20px] h-[40px] rounded bg-[#DB4444] text-transparent'>G</div>
+                        <div className='w-[30px] bg-[#DB4444] min-h-15 text-transparent'>G</div>
                         <div className=''><p className='text-[16px] text-[#DB4444] font-semibold '>Today's</p></div>
                     </div>
                     <div className='flex flex-col md:flex-row w-full justify-between items-center'>
@@ -204,7 +204,7 @@ const FlashSales = () => {
                 </div>
                 <div
                     ref={scrollContainerRef}
-                    className='mt-5 flex items-center w-full overflow-x-auto whitespace-nowrap scroll-smooth scrollbar-hide no-scrollbar'
+                    className='my-10 flex flex-wrap justify-self-center items-center'
                 >
                     {loadingProducts ? (
                         <div className="text-[16px] font-bold text-gray-400 w-full text-center">Loading flash sales products...</div>
@@ -227,12 +227,8 @@ const FlashSales = () => {
                         ))
                     )}
                 </div>
-                <div className='justify-self-center items-center mt-10 text-center'>
-                   <Link to='/flash-sales'><button type='button' className='text-white rounded-sm py-3 px-10 bg-[#DB4444]'>View All Products</button></Link>
-                </div>
             </div>
         </div>
     );
 };
-
-export default FlashSales;
+export default FlashSalesAll
