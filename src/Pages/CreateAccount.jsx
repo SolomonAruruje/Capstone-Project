@@ -143,7 +143,7 @@ const CreateAccount = () => {
 
     // IMPORTANT: Replace with your actual Google Client ID from Google Cloud Console
     // For production, use environment variables (e.g., process.env.REACT_APP_GOOGLE_CLIENT_ID)
-    const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
+    const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
     return (
         <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
