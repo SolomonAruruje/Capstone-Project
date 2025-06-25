@@ -7,7 +7,7 @@ import BestSellingProductsAll from '../src/Pages/BestSellingProductsAll.jsx';
 import CreateAccount from './Pages/CreateAccount.jsx';
 import LogIn from './Pages/Login.jsx';
 import AllProductsPage from './Pages/AllProductsPage.jsx'
-// import Error404 from './pP
+// import Error404 from './Pages/Error404.jsx
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/flash-sales" element={<FlashSalesViewAllPage />} />
-        <Route path="/categories/:categoryName" element={<CategoryDetailPage />} />
+        <Route path="/categories/:keyword" element={<CategoryDetailPage />} />
         <Route path='/best-selling' element={<BestSellingProductsAll/>}/>
         <Route path="/SignUp" element={<CreateAccount/>} />
         <Route path="/LogIn" element={<LogIn/>} />

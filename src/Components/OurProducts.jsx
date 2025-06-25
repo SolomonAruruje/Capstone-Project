@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import leftButton from '../assets/leftbutton.svg';
-import rightButton from '../assets/rightbutton.svg';
+import leftbutton from '../assets/leftbutton.svg';
+import rightbutton from '../assets/rightbutton.svg';
 import Product from './Product';
 import { Link } from 'react-router-dom';
 
@@ -65,8 +65,8 @@ const OurProducts = () => {
                     <div className='flex flex-col md:flex-row w-full justify-between items-center'>
                         <h3 className='text-[32px] font-bold'>Explore Our Products</h3>
                         <div className='flex items-center justify justify-self-end'>
-                            <button id='scrollLeft'><img onClick={scrollLeft} src={leftButton} alt="Scroll Left" className='mr-2 w-[46px]'/></button>
-                            <button id='scrollRight'><img onClick={scrollRight} src={rightButton} alt="Scroll Right" className='w-[46px]'/></button>
+                            <button id='scrollLeft'><img onClick={scrollLeft} src={leftbutton} alt="Scroll Left" className='mr-2 w-[46px]'/></button>
+                            <button id='scrollRight'><img onClick={scrollRight} src={rightbutton} alt="Scroll Right" className='w-[46px]'/></button>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@ const OurProducts = () => {
                     ref={scrollContainerRef}
                     className='mt-5 w-full overflow-x-auto scroll-smooth scrollbar-hide no-scrollbar'
                 >
-                    <div className='grid grid-flow-col grid-rows-2' style={{ width: `${products.length * 140}px` }}>
+                    <div className='grid grid-flow-col grid-rows-2' style={{ width: `${products.length * 50}px` }}>
                     {loadingProducts ? (
                         <div className="text-[16px] font-bold text-gray-400 w-full text-center">Loading flash sales products...</div>
                     ) : errorProducts ? (

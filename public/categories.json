@@ -4,6 +4,7 @@
         "categoriesName" : "Phones",
         "categoriesImage" : "/cellphone.svg"
     },
+    
     {
         "id": 2,
         "categoriesName" : "Camera",
@@ -14,21 +15,25 @@
         "categoriesName" : "SmartWatches",
         "categoriesImage" : "/cellphone.svg"
     },
+
     {
         "id": 4,
         "categoriesName" : "Computers",
         "categoriesImage" : "/cellphone.svg"
     },
+
     {
         "id": 5,
         "categoriesName" : "Gaming",
         "categoriesImage" : "/cellphone.svg"
     },
+
     {
         "id": 6,
         "categoriesName" : "Phones",
         "categoriesImage" : "/cellphone.svg"
     },
+
     {
         "id": 7,
         "categoriesName" : "Camera",
@@ -40,6 +45,7 @@
         "categoriesName" : "HeadPhones",
         "categoriesImage" : "/cellphone.svg"
     },
+
     {
         "id": 9,
         "categoriesName" : "Computers",

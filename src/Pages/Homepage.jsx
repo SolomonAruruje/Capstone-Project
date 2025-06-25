@@ -6,6 +6,7 @@ import FlashSales from '../Components/FlashSales.jsx';
 import Categories from '../Components/Category.jsx'
 import BestSellingProducts from '../Components/BestSellingProducts.jsx';
 import OurProducts from '../Components/OurProducts.jsx';
+import NewArrival from '../Components/NewArrival.jsx';
 // import Test from '../Components/test.jsx';
 
 const Homepage = () => {
@@ -17,6 +18,7 @@ const Homepage = () => {
         <Categories/>
         <BestSellingProducts/>
         <OurProducts/>
+        <NewArrival/>
         <Footer/>
     </div>
   )

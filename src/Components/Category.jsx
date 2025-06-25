@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import CategoriesDiv from './CategoriesDiv';
-import leftButton from '../assets/leftButton.svg';
-import rightButton from '../assets/rightButton.svg';
+import leftbutton from '../assets/leftbutton.svg';
+import rightbutton from '../assets/rightbutton.svg';
 
 const Category = () => {
     const scrollContainerRef = useRef(null);
@@ -65,8 +65,8 @@ const Category = () => {
                         <h3 className='text-[32px] font-bold'>Browse By Category</h3>
 
                         <div className='flex items-center justify justify-self-end'>
-                            <button id='scrollLeft'><img onClick={scrollLeft} src={leftButton} alt="Scroll Left" className='mr-2 w-[46px]'/></button>
-                            <button id='scrollRight'><img onClick={scrollRight} src={rightButton} alt="Scroll Right" className='w-[46px]'/></button>
+                            <button id='scrollLeft'><img onClick={scrollLeft} src={leftbutton} alt="Scroll Left" className='mr-2 w-[46px]'/></button>
+                            <button id='scrollRight'><img onClick={scrollRight} src={rightbutton} alt="Scroll Right" className='w-[46px]'/></button>
                         </div>
                     </div>
                 </div>
