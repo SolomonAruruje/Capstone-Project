@@ -52,15 +52,15 @@ const NewArrival = () => {
             <>
                 <div className='flex flex-col w-full'>
                     <div className='flex w-full space-x-5 items-center'>
-                        <div className='w-[30px] bg-[#DB4444] min-h-15 text-transparent'>G</div>
+                        <div className='w-[20px] bg-[#DB4444] h-[40px] rounded text-transparent'>G</div>
                         <div className=''><p className='text-[16px] text-[#DB4444] font-semibold '>Featured</p></div>
                     </div>
                     <div className='flex'>
                         <h3 className='text-[32px] font-bold text-[#000000]'>{bannerData.sectionHeading}</h3>
                     </div>
                 </div>
-                <div className='flex flex-col md:flex-row w-full justify-between items-center my-10'>
-                    <div className='w-[49%] h-[600px] bg-[#000000] items-center relative'>
+                <div className='md:flex hidden w-full justify-between items-center my-10'>
+                    <div className='w-[px] md:w-[49%] md:h-[600px] bg-[#000000] items-center relative'>
                         <img src={bannerData.image1} alt="" className='w-[511px] absolute bottom-0 left-[50%] transform -translate-x-1/2'/>
                         <div className='hover:scale-105 absolute bottom-10 left-10 text-white space-y-4 flex flex-col flex-wrap'>
                             <h4 className='text-[24px] font-semibold'>{bannerData.heading1}</h4>

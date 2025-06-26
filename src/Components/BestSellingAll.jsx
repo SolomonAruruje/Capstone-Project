@@ -57,13 +57,34 @@ const BestSellingAll = () => {
                         products.map((item) => (
                             <Product
                                 key={item.id}
-                                discountPercentage={item.discountPercentage}
-                                productName={item.productName}
-                                price={item.price}
-                                discountPrice={item.discountPrice}
-                                productImage={item.productImage}
-                                rateno={item.rateno}
-                                rating={item.ratingStars}
+                                product={item}
+                                // id={item.id}
+                                // colour={item.colour}
+                                // discountPercentage={item.discountPercentage}
+                                // productName={item.productName}
+                                // price={item.price}
+                                // discountPrice={item.discountPrice}
+                                // productImage={item.productImage}
+                                // rateno={item.rateno}
+                                // rating={item.ratingStars}
+                                // description={item.description}
+                                // state={item.state}
+                                // img1={item.img1}
+                                // img2={item.img2}
+                                // img3={item.img3}
+                                // img4={item.img4}
+                                // productcolour1={item.productcolour1}
+                                // productcolour2={item.productcolour2}
+                                // productcolour3={item.productcolour3}
+                                // size={item.size}
+                                // sizeA={item.sizeA}
+                                // sizeB={item.sizeB}
+                                // sizeC={item.sizeC}
+                                // sizeD={item.sizeD}
+                                // sizeE={item.sizeE}
+                                // sizeF={item.sizeF}
+                                // sizeG={item.sizeG}
+
                             />
                         ))
                     )}

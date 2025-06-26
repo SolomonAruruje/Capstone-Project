@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import NavBar from '../Components/Navbar.jsx';
 import Footer from '../Components/Footer.jsx';
-import Product from '../Components/Product.jsx';
+import Product from './Product.jsx';
 
 const CategoryDetailPage = () => {
   const { keyword } = useParams();
@@ -83,15 +83,33 @@ const CategoryDetailPage = () => {
             {filteredProducts.map(product => (
               <Product
                 key={product.id}
-                id={product.id}
-                discountPercentage={product.discountPercentage || 0} // Provide default if not always present
-                colour={product.colour || 'N/A'}
-                productName={product.productName}
-                discountPrice={product.discountPrice || product.price || 0}
-                price={product.price}
-                productImage={product.productImage || 'https://placehold.co/150x150?text=No+Image'}
-                rateno={product.rateno || 0}
-                rating={product.ratingStars || 0}
+                product={item}
+                // id={product.id}
+                // discountPercentage={product.discountPercentage || 0} // Provide default if not always present
+                // colour={product.colour || 'N/A'}
+                // productName={product.productName}
+                // discountPrice={product.discountPrice || product.price || 0}
+                // price={product.price}
+                // productImage={product.productImage || 'https://placehold.co/150x150?text=No+Image'}
+                // rateno={product.rateno || 0}
+                // rating={product.ratingStars || 0}
+                // description={product.description}
+                // state={product.state}
+                // img1={product.img1}
+                // img2={product.img2}
+                // img3={product.img3}
+                // img4={product.img4}
+                // productcolour1={product.productcolour1}
+                // productcolour2={product.productcolour2}
+                // productcolour3={product.productcolour3}
+                // size={product.size}
+                // sizeA={product.sizeA}
+                // sizeB={product.sizeB}
+                // sizeC={product.sizeC}
+                // sizeD={product.sizeD}
+                // sizeE={product.sizeE}
+                // sizeF={product.sizeF}
+                // sizeG={product.sizeG}
               />
             ))}
           </div>
@@ -107,89 +125,3 @@ const CategoryDetailPage = () => {
 };
 
 export default CategoryDetailPage;
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
-// import Product from './Product.jsx';
-// import NavBar from './Navbar';
-// import Footer from './Footer';
-
-// const CategoryDetailPage = () => {
-//     const { categoryName } = useParams();
-//     const [products, setProducts] = useState([]);
-//     const [loading, setLoading] = useState(true);
-//     const [error, setError] = useState(null);
-
-//     useEffect(() => {
-//         const fetchCategoryProducts = async () => {
-//             setLoading(true);
-//             setError(null);
-//             try {
-//                 // Fetch ALL products from backend
-//                 const response = await fetch('/products.json')
-//                 if (!response.ok) {
-//                     throw new Error(`HTTP error! status: ${response.status}`);
-//                 }
-//                 const allProducts = await response.json();
-
-//                 // Filter products by categoryName
-//                 const filteredProducts = allProducts.filter(
-//                     (product) => product.category && product.category.toLowerCase() === categoryName.toLowerCase()
-//                 );
-
-//                 setProducts(filteredProducts);
-//             } catch (err) {
-//                 console.error(`Failed to fetch products for category ${categoryName}:`, err);
-//                 setError(`Failed to load products for "${categoryName}": ${err.message}.`);
-//             } finally {
-//                 setLoading(false);
-//             }
-//         };
-
-//         fetchCategoryProducts();
-//     }, [categoryName]);
-
-//     return (
-//         <div>
-//             <NavBar />
-//         <div className="w-[96%] mx-auto my-8">
-//             <h1 className="text-[36px] font-bold mb-6 text-center md:text-left">
-//                 Category: {categoryName ? decodeURIComponent(categoryName.replace(/-/g, ' ')) : 'Unknown'}
-//             </h1>
-
-//             {loading ? (
-//                 <div className="text-[18px] text-gray-500 text-center py-10">Loading products...</div>
-//             ) : error ? (
-//                 <div className="text-[18px] text-red-600 text-center py-10">{error}</div>
-//             ) : products.length === 0 ? (
-//                 <div className="text-[18px] text-gray-700 text-center py-10">
-//                     No products found in the "{categoryName ? decodeURIComponent(categoryName.replace(/-/g, ' ')) : 'Unknown'}" category.
-//                 </div>
-//             ) : (
-//                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
-//                     {products.map((item) => (
-//                         <Product
-//                             key={item.id}
-//                             id={item.id}
-//                             productName={item.productName}
-//                             discountPrice={item.discountPrice}
-//                             productImage={item.productImage}
-//                             rateno={item.rateno}
-//                             rating={item.ratingStars}
-//                         />
-//                     ))}
-//                 </div>
-//             )}
-//         </div>
-//         <Footer />
-//     </div>
-//     );
-// };
-
-// export default CategoryDetailPage;
