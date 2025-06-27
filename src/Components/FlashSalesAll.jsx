@@ -196,12 +196,16 @@ const FlashSalesAll = () => {
                                 )
                             )}
                         </div>
+                        {isCountingDown && (
                         <div className='flex items-center justify justify-self-end'>
                             <button id='scrollLeft'><img onClick={scrollLeft} src={leftButton} alt="Scroll Left" className='mr-2 w-[46px]'/></button>
                             <button id='scrollRight'><img onClick={scrollRight} src={rightButton} alt="Scroll Right" className='w-[46px]'/></button>
                         </div>
+                        )}
                     </div>
                 </div>
+
+                {isCountingDown ? (
                 <div
                     ref={scrollContainerRef}
                     className='my-10 flex flex-col md:flex-row md:flex-wrap items-center'
@@ -246,6 +250,12 @@ const FlashSalesAll = () => {
                         ))
                     )}
                 </div>
+                ) : (
+                    <div className="mt-5 w-full text-center text-[18px] font-semibold text-gray-600">
+                        Flash Sales are currently not active. Kindly check back later!
+                    </div>
+                )}
+                
             </div>
         </div>
     );
