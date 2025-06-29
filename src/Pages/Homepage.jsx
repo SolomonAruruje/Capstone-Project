@@ -7,7 +7,7 @@ import Categories from '../Components/Category.jsx'
 import BestSellingProducts from '../Components/BestSellingProducts.jsx';
 import OurProducts from '../Components/OurProducts.jsx';
 import NewArrival from '../Components/NewArrival.jsx';
-// import Test from '../Components/test.jsx';
+import Services from '../Components/Services.jsx';
 
 const Homepage = () => {
   return (
@@ -19,6 +19,7 @@ const Homepage = () => {
         <BestSellingProducts/>
         <OurProducts/>
         <NewArrival/>
+        <Services/>
         <Footer/>
     </div>
   )

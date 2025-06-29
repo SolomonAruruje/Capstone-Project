@@ -59,7 +59,7 @@ const NewArrival = () => {
                         <h3 className='text-[32px] font-bold text-[#000000]'>{bannerData.sectionHeading}</h3>
                     </div>
                 </div>
-                <div className='md:flex hidden w-full justify-between items-center my-10'>
+                <div className='md:flex hidden w-full justify-between items-center mt-5 mb-10'>
                     <div className='w-[px] md:w-[49%] md:h-[600px] bg-[#000000] items-center relative'>
                         <img src={bannerData.image1} alt="" className='w-[511px] absolute bottom-0 left-[50%] transform -translate-x-1/2'/>
                         <div className='hover:scale-105 absolute bottom-10 left-10 text-white space-y-4 flex flex-col flex-wrap'>
@@ -93,6 +93,45 @@ const NewArrival = () => {
                                     <p className='text-[14px]/[21px] font-normal w-[85%] flex-wrap'>{bannerData.description4}</p>
                                     <Link to={`/categories/${encodeURIComponent(bannerData.link4)}`} className='text-[16px] font-medium underline'>Shop Now</Link>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className='md:hidden flex flex-col w-full justify-between items-center mt-5 mb-10'>
+                    <div className='w-full h-[370px] bg-[#000000] flex items-center justify-center relative mb-3 object-contain'>
+                        <img src={bannerData.image1} alt="" className='w-[80%]'/>
+                        <div className='absolute bottom-5 left-5 text-white space-y-3 flex flex-col flex-wrap'>
+                            <h4 className='text-[24px] font-semibold'>{bannerData.heading1}</h4>
+                            <p className='text-[14px]/[21px] font-normal w-[250px] flex-wrap'>{bannerData.description1}</p>
+                            <Link to={`/categories/${encodeURIComponent(bannerData.link1)}`} className='text-[16px] font-medium underline'>Shop Now</Link>
+                        </div>
+                    </div>
+                    <div className='w-full h-[200px] bg-[#000000] justify-center items-center flex relative object-contain mb-3'>
+                        <img src={bannerData.image2} alt="" className='h-[90%] absolute right-0'/>
+                        <div className='absolute bottom-5 left-5 text-white space-y-1 flex flex-col flex-wrap'>
+                            <h4 className='text-[24px] font-semibold'>{bannerData.heading2}</h4>
+                            <p className='text-[14px]/[21px] font-normal w-[250px] flex-wrap'>{bannerData.description2}</p>
+                            <Link to={`/categories/${encodeURIComponent(bannerData.link2)}`} className='text-[16px] font-medium underline'>Shop Now</Link>
+                        </div>
+                    </div>
+                    <div className='flex w-full justify-between'>
+                        <div className='w-[48%] h-[] bg-[#000000] flex justify-center items-center relative object-contain'>
+                            <img src={bannerData.image3} alt="" className='h-[80%]'/>
+                            <div className='absolute bottom-5 left-5 text-white space-y-1 flex flex-col flex-wrap'>
+                                <h4 className='text-[24px] font-semibold'>{bannerData.heading3}</h4>
+                                <p className='text-[14px]/[21px] font-normal w-[85%] flex-wrap'>{bannerData.description3}</p>
+                                <Link to={`/categories/${encodeURIComponent(bannerData.link3)}`} className='text-[16px] font-medium underline'>Shop Now</Link>
+                            </div>
+                        </div>
+
+                        <div className='w-[48%] h-[] bg-[#000000] flex justify-center items-center relative object-contain'>
+                            <img src={bannerData.image4} alt="" className='h-[80%]'/>
+                            <div className='absolute bottom-5 left-5 text-white space-y-1 flex flex-col flex-wrap'>
+                                <h4 className='text-[24px] font-semibold'>{bannerData.heading4}</h4>
+                                <p className='text-[14px]/[21px] font-normal w-[85%] flex-wrap'>{bannerData.description4}</p>
+                                <Link to={`/categories/${encodeURIComponent(bannerData.link4)}`} className='text-[16px] font-medium underline'>Shop Now</Link>
                             </div>
                         </div>
                     </div>

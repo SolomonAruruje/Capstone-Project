@@ -7,7 +7,6 @@ import Product from './Product.jsx';
 const CategoryDetailPage = () => {
   const { keyword } = useParams();
 
-  const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -28,29 +27,34 @@ const CategoryDetailPage = () => {
         }
 
         const allProducts = await response.json();
-        setProducts(allProducts); // Store all products (optional, for re-filtering)
 
-        // --- Filtering Logic ---
-        const lowerCaseKeyword = decodeURIComponent(keyword || '').toLowerCase(); // Decode and lowercase for comparison
+        // --- Filtering Logic for multiple words (OR Logic) ---
+        const lowerCaseKeyword = decodeURIComponent(keyword || '').toLowerCase();
+
+        // Split the keyword into individual terms, handling multiple spaces, and filter out empty terms.
+        // For example, "red  shoes" becomes ["red", "shoes"]
+        const searchTerms = lowerCaseKeyword.split(/\s+/).filter(term => term.length > 0);
 
         const results = allProducts.filter(product => {
-          // Check product name
-          if (product.productName && product.productName.toLowerCase().includes(lowerCaseKeyword)) {
+          // If no search terms are present (e.g., empty search bar submitted), show all products.
+          if (searchTerms.length === 0) {
             return true;
           }
-          // Check category (if your products have a 'category' field)
-          if (product.category && product.category.toLowerCase().includes(lowerCaseKeyword)) {
-            return true;
-          }
-          // Check product ID
-          if (product.id && product.id.toLowerCase().includes(lowerCaseKeyword)) {
-            return true;
-          }
-          // Add other fields to search if necessary (e.g., description, tags)
-          // if (product.description && product.description.toLowerCase().includes(lowerCaseKeyword)) {
-          //   return true;
-          // }
-          return false;
+
+          // Combine relevant product fields into a single string for comprehensive searching.
+          // .filter(Boolean) removes any null, undefined, or empty string values from the array.
+          const searchableProductString = [
+            product.productName,
+            product.category,
+            // Ensure product.id is treated as a string for inclusion
+            typeof product.id === 'string' ? product.id : String(product.id),
+            product.description, // Include description if it's a field in your product data
+            // Add any other product fields here that you want to be searchable (e.g., product.tags)
+          ].filter(Boolean).join(' ').toLowerCase();
+
+          // >>> THIS IS THE CHANGE FOR "OR" LOGIC <<<
+          // Check if ANY of the search terms are present in the product's combined string.
+          return searchTerms.some(term => searchableProductString.includes(term));
         });
 
         setFilteredProducts(results);
@@ -83,33 +87,7 @@ const CategoryDetailPage = () => {
             {filteredProducts.map(product => (
               <Product
                 key={product.id}
-                product={item}
-                // id={product.id}
-                // discountPercentage={product.discountPercentage || 0} // Provide default if not always present
-                // colour={product.colour || 'N/A'}
-                // productName={product.productName}
-                // discountPrice={product.discountPrice || product.price || 0}
-                // price={product.price}
-                // productImage={product.productImage || 'https://placehold.co/150x150?text=No+Image'}
-                // rateno={product.rateno || 0}
-                // rating={product.ratingStars || 0}
-                // description={product.description}
-                // state={product.state}
-                // img1={product.img1}
-                // img2={product.img2}
-                // img3={product.img3}
-                // img4={product.img4}
-                // productcolour1={product.productcolour1}
-                // productcolour2={product.productcolour2}
-                // productcolour3={product.productcolour3}
-                // size={product.size}
-                // sizeA={product.sizeA}
-                // sizeB={product.sizeB}
-                // sizeC={product.sizeC}
-                // sizeD={product.sizeD}
-                // sizeE={product.sizeE}
-                // sizeF={product.sizeF}
-                // sizeG={product.sizeG}
+                product={product} // Correctly passes the entire product object
               />
             ))}
           </div>

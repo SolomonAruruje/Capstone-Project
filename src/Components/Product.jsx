@@ -5,8 +5,12 @@ import Stars from './Stars';
 
 const Product = ({ product }) => {
 
+    const [currentQuantity, setCurrentQuantity] = useState(product?.initialQuantity || 1);
+    const [selectedSize, setSelectedSize] = useState(null);
+    const [selectedColor, setSelectedColor] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     if (!product) {
-        // console.warn("Product component received an undefined product prop. Not rendering.");
         return null;
     }
 
@@ -39,13 +43,6 @@ const Product = ({ product }) => {
         sizeG = "",
     } = product;
 
-
-    const [currentQuantity, setCurrentQuantity] = useState(product?.initialQuantity || 1);
-    const [selectedSize, setSelectedSize] = useState(null);
-    const [selectedColor, setSelectedColor] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false); // New state for modal visibility
-
-    // if (!product) return null;
 
     const handleDecreaseQuantity = () => {
         setCurrentQuantity(prev => (prev > 1 ? prev - 1 : 1));
@@ -87,8 +84,8 @@ const Product = ({ product }) => {
                 <div>
                     <h4 className='text-[16px] font-semibold'>{productName}</h4>
                     <p className='text-[16px] text-[#DB4444] font-medium'>&#8358;{discountPrice} <span className='text-[#000000] ml-3 line-through'>{price}</span></p>
-                    <div className="flex items-center space-x-[-2px]">
-                        <Stars rating={ratingStars} /> {/* Use ratingStars for consistency */}
+                    <div className="flex space-x-[-2px]">
+                        <Stars rating={ratingStars} />
                         <span className="text-[#000000] text-[14px] font-semibold ml-2">{rateno}</span>
                     </div>
                 </div>

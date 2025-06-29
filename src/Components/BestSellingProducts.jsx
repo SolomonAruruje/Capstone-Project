@@ -34,7 +34,7 @@ const BestSellingProducts = () => {
   
    
       return (
-          <div className='w-[96%] my-8 items-center justify-self-center'>
+          <div className='w-[96%] my-15 items-center justify-self-center'>
               <div>
                   <div className='flex flex-col flex-wrap w-full' >
                       <div className='flex w-full space-x-5 items-center'>

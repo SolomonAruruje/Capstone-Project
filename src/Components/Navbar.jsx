@@ -4,11 +4,26 @@ import Responsive from '../assets/responsive.svg';
 import Search from '../assets/Vector.svg';
 import cart from '../assets/Cart1.svg';
 import wishlist from '../assets/Wishlist.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import userIcon from '../assets/user.svg';
 import { useAuth } from '../AuthContext';
 
 const Navbar = () => {
+    const navigate = useNavigate();
+    
+
+    const handleSearchSubmit = (event) => {
+    event.preventDefault();
+
+    const searchInput = event.target.elements.searchBar; // Access the input by its 'name'
+    const keyword = searchInput.value.trim();
+
+    if (keyword) {
+      // Encode the keyword to handle special characters in the URL
+      navigate(`/categories/${encodeURIComponent(keyword)}`);
+    }
+  };
+
     const [mobile, setMobile] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -62,7 +77,7 @@ const Navbar = () => {
                     )}
                 </div>
                 <div className="flex items-center text-lg justify-items-end">
-                    <form className='hover:shadow bg-[#F5F5F5] mr-1.5 w-[243px] py-1.5 px-2 rounded text-[12px] font-normal items-center flex'>
+                    <form className='hover:shadow bg-[#F5F5F5] mr-1.5 w-[243px] py-1.5 px-2 rounded text-[12px] font-normal items-center flex' onSubmit={handleSearchSubmit}>
                         <input name='searchBar' type='search' placeholder='What are you looking for?' className='w-[243px] focus:outline-none' />
                         <button type='submit'>
                             <img src={Search} alt="Search Icon" />
@@ -88,7 +103,7 @@ const Navbar = () => {
 
                                 {isDropdownOpen && (
                                     <div className='absolute right-0 mt-2 w-48 bg-[#0000000A] backdrop-blur-xl rounded-md shadow-lg z-50 overflow-hidden'>
-                                        <Link to="/account/manage" className="flex items-center px-4 py-2 text-white text-[14px]/[21px] font-normal hover:text-shadow-lg/20 hover:scale-108" onClick={() => setIsDropdownOpen(false)}>
+                                        <Link to="/manage-account" className="flex items-center px-4 py-2 text-white text-[14px]/[21px] font-normal hover:text-shadow-lg/20 hover:scale-108" onClick={() => setIsDropdownOpen(false)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                             </svg>
@@ -182,7 +197,7 @@ const Navbar = () => {
                             </h5>
                         )}
                         <div className="flex flex-col md:hidden text-lg justify-items-end mt-4">
-                            <form  className='mb-2.5 hover:shadow bg-[#F5F5F5] mr-2 w-full py-1.5 px-2 rounded text-[12px] font-normal items-center flex'>
+                            <form  className='mb-2.5 hover:shadow bg-[#F5F5F5] mr-2 w-full py-1.5 px-2 rounded text-[12px] font-normal items-center flex' onSubmit={handleSearchSubmit}>
                                 <input name='searchBar' type='search' placeholder='What are you looking for?' className='w-full focus:outline-none' />
                                 <button type='submit'>
                                     <img src={Search} alt="Search Icon" />

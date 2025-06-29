@@ -54,7 +54,7 @@ const Category = () => {
 
  
     return (
-        <div className='w-[96%] my-8 items-center justify-self-center'>
+        <div className='w-[96%] my-10 items-center justify-self-center'>
             <div>
                 <div className='flex flex-col flex-wrap w-full' >
                     <div className='flex w-full space-x-5 items-center'>
@@ -72,7 +72,7 @@ const Category = () => {
                 </div>
                 <div
                     ref={scrollContainerRef}
-                    className='my-10 flex items-center w-full overflow-x-auto whitespace-nowrap scroll-smooth scrollbar-hide no-scrollbar'
+                    className='my-15 flex items-center w-full overflow-x-auto whitespace-nowrap scroll-smooth scrollbar-hide no-scrollbar'
                 >
                     {loadingCategories ? (
                         <div className="text-[16px] font-bold text-gray-400 w-full text-center">Loading Categories...</div>
