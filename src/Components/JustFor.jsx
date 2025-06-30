@@ -43,7 +43,7 @@ const JustFor = () => {
                       </div>
                       <div className='w-full justify-between items-center'>  
                           <div className='flex items-center justify justify-self-end'>
-                              <Link to='/best-selling'><button type='button' className='text-[#000000] rounded-sm py-3 px-10 bg-white border border-[#000000]'>See All</button></Link>
+                              <Link to='/justforyou'><button type='button' className='text-[#000000] rounded-sm py-3 px-10 bg-white border border-[#000000]'>See All</button></Link>
                           </div>
                       </div>
                   </div>

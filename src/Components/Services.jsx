@@ -6,13 +6,13 @@ import guarantee from '../assets/guarantee.svg'
 const Services = () => {
   return (
     <div>
-        <div className='flex flex-col md:flex-row space-y-8 md:space-y-3 items-center justify-between my-25 w-[75%] justify-self-center'>
-            <div className='flex flex-col items-center justify-center space-y-2'>
+        <div className='flex flex-col md:flex-row items-center justify-between my-25 w-[80%] justify-self-center'>
+            <div className='flex flex-col items-center justify-center space-y-2 mb-7 md:mb-0'>
                 <img src={delivery} alt="" className='w-[]'/>
                 <p className='text-[20px]/[28px] font-semibold'>FREE AND FAST DELIVERY</p>
                 <p className='text-[14px]/[21px] font-normal'>Free delivery for all orders over $140</p>
             </div>
-            <div className='flex flex-col items-center justify-center space-y-2'>
+            <div className='flex flex-col items-center justify-center space-y-2 mb-7 md:mb-0'>
                  <img src={customer} alt="" className='w-[]'/>
                 <p className='text-[20px]/[28px] font-semibold'>24/7 CUSTOMER SERVICE</p>
                 <p className='text-[14px]/[21px] font-normal'>Friendly 24/7 customer support</p>

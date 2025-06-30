@@ -57,9 +57,9 @@ const Footer = () => {
                   </p>
                   <div className='mb-2'>
                       <p className='text-[12px] mb-1'>Save $3 with App New User Only</p>
-                      <div className='flex items-center'>
+                      <div className='flex space-x-1.5 items-center'>
                         <div>
-                          <img src={qrcode} alt="" />
+                          <img src={qrcode} alt="" className=''/>
                         </div>
                         <div>
                         <img src={gplay} alt="" />

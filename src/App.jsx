@@ -15,6 +15,7 @@ import ManageAccount from './Pages/ManageAccount.jsx';
 import About from './Pages/About.jsx';
 import { AuthProvider } from './AuthContext.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
+import JustForAll from './Components/JustForAll.jsx';
 
 
 const App = () => {
@@ -32,6 +33,8 @@ const App = () => {
           <Route path="/wishlist" element={<WishlistPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path='/About' element={<About/>} />
+          <Route path='/justforyou' element={<JustForAll/>}/>
+
           {/* <Route path="/manage-account" element={<ManageAccount />} /> */}
 
 
