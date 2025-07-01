@@ -16,6 +16,7 @@ import About from './Pages/About.jsx';
 import { AuthProvider } from './AuthContext.jsx';
 import PrivateRoute from './Components/PrivateRoute.jsx';
 import JustForAll from './Components/JustForAll.jsx';
+import CheckoutPage from './Pages/CheckoutPage.jsx';
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path='/About' element={<About/>} />
           <Route path='/justforyou' element={<JustForAll/>}/>
+          <Route path='/checkout' element={<CheckoutPage/>}/>
 
           {/* <Route path="/manage-account" element={<ManageAccount />} /> */}
 

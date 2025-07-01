@@ -142,6 +142,8 @@ const FlashSales = () => {
     const formatTime = (time) => String(time).padStart(2, '0');
 
     return (
+        <div>
+        {isCountingDown && (
         <div className='w-[96%] my-8 items-center justify-self-center'>
             <div>
                 <div className='flex flex-col flex-wrap w-full' >
@@ -196,12 +198,11 @@ const FlashSales = () => {
                                 )
                             )}
                         </div>
-                        {isCountingDown && (
+
                         <div className='flex items-center justify justify-self-end'>
                             <button id='scrollLeft'><img onClick={scrollLeft} src={leftbutton} alt="Scroll Left" className='mr-2 w-[46px]'/></button>
                             <button id='scrollRight'><img onClick={scrollRight} src={rightbutton} alt="Scroll Right" className='w-[46px]'/></button>
                         </div>
-                        )}
                     </div>
                 </div>
                 
@@ -261,6 +262,8 @@ const FlashSales = () => {
                 </div>
             </div>
         </div>
+            )}
+            </div>
     );
 };
 

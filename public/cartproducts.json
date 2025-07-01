@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "category": "Camera",
+        "discountPercentage": "-40%",
+        "colour": "#DB4444",
+        "productName": "HAVIT HV-G92 Gamepad",
+        "price": "160",
+        "discountPrice": "120",
+        "productImage": "/gamepad.svg",
+        "rateno": "88",
+        "ratingStars": "5"
+    },
+        {
+        "id": 2,
+        "category": "Phones",
+        "discountPercentage": "-40%",
+        "colour": "#DB4444",
+        "productName": "HAVIT HV-G92 Gamepad",
+        "price": "160",
+        "discountPrice": "120",
+        "productImage": "/gamepad.svg",
+        "rateno": "88",
+        "ratingStars": "5"
+    },
+        {
+        "id": 8,
+        "category": "Camera",
+        "discountPercentage": "-40%",
+        "colour": "#DB4444",
+        "productName": "HAVIT HV-G92 Gamepad",
+        "price": "160",
+        "discountPrice": "120",
+        "productImage": "/gamepad.svg",
+        "rateno": "88",
+        "ratingStars": "4.5"
+    }
+]

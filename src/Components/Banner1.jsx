@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import appleLogo from '../assets/applelogo.svg'
-import rightArrow from '../assets/rightarrow.svg'
-import Phone from '../assets/applephone.svg'
+import appleLogo from '../assets/applelogo.svg';
+import rightArrow from '../assets/rightarrow.svg';
+import Phone from '../assets/applephone.svg';
 import rightDrop from '../assets/rightdrop.svg';
+import { Link } from 'react-router-dom';
 
 const Banner1 = () => {
     useEffect(() => {
@@ -147,10 +148,10 @@ const Banner1 = () => {
                     tabIndex='-1'
                     >
                     <div className='py-1' role='none'>
-                        <a href='/women-adult' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-0'>
+                        <a href='/categories/women adult' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-0'>
                         Adult
                         </a>
-                        <a href='/women-kids' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-1'>
+                        <a href='/categories/women kids' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-1'>
                         Kids
                         </a>
                     </div>
@@ -184,22 +185,22 @@ const Banner1 = () => {
                     tabIndex='-1'
                     >
                     <div className='py-1' role='none'>
-                        <a href='/men-adult' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-01'>
+                        <a href='/categories/men adult' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-01'>
                         Adult
                         </a>
-                        <a href='/men-kids' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-02'>
+                        <a href='/categories/men kids' className='text-[#000000] hover:text-shadow-lg/20 block px-4 py-2' role='menuitem' tabIndex='-1' id='menu-item-02'>
                         Kids
                         </a>
                     </div>
                     </div>
                 </span>
-                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Electronics</a>
-                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Home & Lifestyle</a>
-                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Medicine</a>
-                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Sports & Outdoor</a>
-                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Baby's & Toys</a>
-                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Groceries & Pets</a>
-                <a href="" className='hover:text-shadow-lg/20 mb-1.5'>Health & Beauty</a>
+                <Link to="/categories/electronics" className='hover:text-shadow-lg/20 mb-1.5'>Electronics</Link>
+                <Link to="/categories/home lifestyle" className='hover:text-shadow-lg/20 mb-1.5'>Home & Lifestyle</Link>
+                <Link to="/categories/medicine" className='hover:text-shadow-lg/20 mb-1.5'>Medicine</Link>
+                <Link to="/categories/sports sport outdoor" className='hover:text-shadow-lg/20 mb-1.5'>Sports & Outdoor</Link>
+                <Link to="/categories/baby toys" className='hover:text-shadow-lg/20 mb-1.5'>Baby's & Toys</Link>
+                <Link to="/categories/groceries pets" className='hover:text-shadow-lg/20 mb-1.5'>Groceries & Pets</Link>
+                <Link to="/categories/health beauty" className='hover:text-shadow-lg/20 mb-1.5'>Health & Beauty</Link>
             </div>
             <div className='md:ml-5 md:w-[75%] bg-[#000000]'>
             <div id='1st' className='hidden' >
