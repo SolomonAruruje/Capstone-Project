@@ -73,7 +73,7 @@ const CategoryDetailPage = () => {
   return (
     <>
       <NavBar />
-      <div className="container justify-self-center">
+      <div className="container justify-self-center my-[50px]">
         <h1 className="text-3xl font-bold my-6 text-center">
           Results for "{decodeURIComponent(keyword || '')}"
         </h1>

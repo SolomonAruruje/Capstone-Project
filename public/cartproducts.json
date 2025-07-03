@@ -5,8 +5,8 @@
         "discountPercentage": "-40%",
         "colour": "#DB4444",
         "productName": "HAVIT HV-G92 Gamepad",
-        "price": "160",
-        "discountPrice": "120",
+        "oldPrice": "160",
+        "Price": "120",
         "productImage": "/gamepad.svg",
         "rateno": "88",
         "ratingStars": "5"
@@ -17,8 +17,8 @@
         "discountPercentage": "-40%",
         "colour": "#DB4444",
         "productName": "HAVIT HV-G92 Gamepad",
-        "price": "160",
-        "discountPrice": "120",
+        "oldPrice": "160",
+        "Price": "120",
         "productImage": "/gamepad.svg",
         "rateno": "88",
         "ratingStars": "5"
@@ -29,8 +29,8 @@
         "discountPercentage": "-40%",
         "colour": "#DB4444",
         "productName": "HAVIT HV-G92 Gamepad",
-        "price": "160",
-        "discountPrice": "120",
+        "oldPrice": "160",
+        "Price": "120",
         "productImage": "/gamepad.svg",
         "rateno": "88",
         "ratingStars": "4.5"

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import wishlist from '../assets/wishlist2.svg';
 import quickView from '../assets/quickview.svg';
 import Stars from './Stars';
+import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
 
@@ -24,8 +25,8 @@ const Product = ({ product }) => {
         discountPercentage = "",
         colour = "",
         productName = '',
-        price = "",
-        discountPrice = "",
+        oldPrice = "",
+        Price = "",
         rateno = "",
         ratingStars,
         description = "",
@@ -73,7 +74,7 @@ const Product = ({ product }) => {
             {/* Product Card */}
             <div className='flex flex-col mr-4 w-[250px] lg:w-[270px] flex-shrink-0 mb-5' id={id}>
                 <div className='items-center flex group overflow-hidden cursor-pointer gap-5 bg-[#F5F5F5] relative rounded-sm p-5 w-[250px] lg:w-[270px] h-[250px] '>
-                    <img src={productImage} alt={`Image of ${productName}`} className='absolute w-[172px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'/>
+                    <Link to={`/product-details/${id}`}><img src={productImage} alt={`Image of ${productName}`} className='absolute w-[172px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'/></Link>
                     <button className='h-[41px] text-white text-[16px] font-medium opacity-100 w-full bottom-0 left-0 right-0 transition-opacity duration-300 pointer-events-auto absolute lg:opacity-0 lg:pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto bg-[#000000]'>Add To Cart</button>
                     <p className='absolute top-2 left-2 px-2 py-1 text-white rounded text-[12px] font-normal' style={{ backgroundColor: colour }}>{discountPercentage}</p>
                     <div className='flex flex-col space-y-2 absolute right-2 top-2 items-center'>
@@ -83,12 +84,13 @@ const Product = ({ product }) => {
                 </div>
                 <div>
                     <h4 className='text-[16px] font-semibold'>{productName}</h4>
-                    <p className='text-[16px] text-[#DB4444] font-medium'>&#8358;{discountPrice} <span className='text-[#000000] ml-3 line-through'>{price}</span></p>
+                    <p className='text-[16px] text-[#DB4444] font-medium'>&#8358;{Price} <span className='text-[#000000] ml-3 line-through'>{oldPrice}</span></p>
                     <div className="flex space-x-[-2px]">
                         <Stars rating={ratingStars} />
                         <span className="text-[#000000] text-[14px] font-semibold ml-2">{rateno}</span>
                     </div>
                 </div>
+                
             </div>
 
             {/* Modal Overlay - Conditionally Rendered */}
@@ -132,7 +134,7 @@ const Product = ({ product }) => {
 
                             {/* Product Info Column */}
                             <div className='flex flex-col align-middle md:w-[250px] lg:w-[275px] h-[465px]'>
-                                {/* Product Name, Rating, Price, Description */}
+                                {/* Product Name, Rating, oldPrice, Description */}
                                 <div className='mb-2 pb-3 border-b border-[#000000]'>
                                     <h4 className='text-[24px] font-semibold mt-3 mb-2'>{productName}</h4>
                                     <div className="flex items-center mb-2">
@@ -142,8 +144,8 @@ const Product = ({ product }) => {
                                         </p>
                                     </div>
                                     <p className='text-[24px] text-[#000000] font-normal mb-2'>
-                                        &#8358;{discountPrice}
-                                        <span className='text-gray-700 text-[24px] ml-7 line-through'>{price}</span>
+                                        &#8358;{Price}
+                                        <span className='text-gray-700 text-[24px] ml-7 line-through'>{oldPrice}</span>
                                     </p>
                                     <p className='text-[14px]/[19px] text-[#000000] text-justify font-normal'>{description}</p>
                                 </div>

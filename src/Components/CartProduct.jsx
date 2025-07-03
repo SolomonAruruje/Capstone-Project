@@ -5,7 +5,7 @@ const CartProduct = (
     id,
     productImage = "",
     productName = '',
-    discountPrice =''
+    Price =''
 }
 ) => {
   return (
@@ -16,7 +16,7 @@ const CartProduct = (
                 <p className='text-[16px] font-normal'>{productName}</p>
             </div>
             <div>
-                <p className='text-[16px] font-medium'>&#8358;{discountPrice}</p>
+                <p className='text-[16px] font-medium'>&#8358;{Price}</p>
             </div>   
         </div>
     </div>
