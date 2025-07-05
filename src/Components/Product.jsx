@@ -93,7 +93,7 @@ const Product = ({ product }) => {
                 
             </div>
 
-            {/* Modal Overlay - Conditionally Rendered */}
+            {/* Modal Overlay */}
             {isModalOpen && (
                 <div className="fixed inset-0 bg-transparent bg-opacity-50 flex items-center justify-center z-50 p-4 ">
                     {/* Modal Content */}
@@ -133,7 +133,7 @@ const Product = ({ product }) => {
                             </div>
 
                             {/* Product Info Column */}
-                            <div className='flex flex-col align-middle md:w-[250px] lg:w-[275px] h-[465px]'>
+                            <div className='flex flex-col align-middle md:w-[250px] lg:w-[280px] h-[475px]'>
                                 {/* Product Name, Rating, oldPrice, Description */}
                                 <div className='mb-2 pb-3 border-b border-[#000000]'>
                                     <h4 className='text-[24px] font-semibold mt-3 mb-2'>{productName}</h4>

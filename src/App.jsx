@@ -18,6 +18,7 @@ import PrivateRoute from './Components/PrivateRoute.jsx';
 import JustForAll from './Components/JustForAll.jsx';
 import CheckoutPage from './Pages/CheckoutPage.jsx';
 import ProductDetailsPage from './Pages/ProductDetailsPage.jsx';
+import Cart from './Pages/Cart.jsx';
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
           <Route path='/justforyou' element={<JustForAll/>}/>
           <Route path='/checkout' element={<CheckoutPage/>}/>
           <Route path="/product-details/:productId" element={<ProductDetailsPage />} />
+          <Route path='/cart' element={<Cart/>}/>
 
           {/* <Route path="/manage-account" element={<ManageAccount />} /> */}
 
