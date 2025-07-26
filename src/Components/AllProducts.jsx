@@ -1,96 +1,76 @@
+
 import React, { useState, useEffect, useRef } from 'react';
-import Product from './Product.jsx';
+import Product from './Product';
 
 const AllProducts = () => {
-      const scrollContainerRef = useRef(null);
+    const scrollContainerRef = useRef(null);
     const [products, setProducts] = useState([]);
-    const [loadingProducts, setLoadingProducts] = useState(true);
-    const [errorProducts, setErrorProducts] = useState(null);
-
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchProducts = async () => {
-            setLoadingProducts(true);
-            setErrorProducts(null);
+            setLoading(true);
+            setError(null);
             try {
-                const response = await fetch('/products.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+                
+                const response = await fetch('http://localhost:8080/api/products');
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const data = await response.json();
                 setProducts(data);
             } catch (err) {
-                console.error('Failed to fetch All products:', err);
-                setErrorProducts(`Failed to load All products: ${err.message}.`);
+                console.error('Failed to fetch products:', err);
+                setError(`Could not load products: ${err.message}`);
                 setProducts([]);
             } finally {
-                setLoadingProducts(false);
+                setLoading(false);
             }
         };
 
         fetchProducts();
     }, []);
-    
-    
+
     return (
-        <div className='w-[96%] my-8 items-center justify-self-center'>
-            <div>
-                <div className='flex flex-col flex-wrap w-full' >
-                    <div className='flex w-full space-x-5 items-center'>
-                        <div className='w-[30px] bg-[#DB4444] min-h-15 text-transparent'>G</div>
-                        <div className=''><p className='text-[16px] text-[#DB4444] font-semibold '>Our Products</p></div>
-                    </div>
-                    <div className='flex flex-col md:flex-row w-full justify-between items-center'>
-                        <h3 className='text-[32px] font-bold'>Explore Our Products</h3>
+        <section className='w-[96%] my-8 mx-auto'>
+            <div className='flex flex-col space-y-4'>
+                {/* Section Header */}
+                <div className='flex items-center space-x-4'>
+                    <div className='w-[30px] bg-[#DB4444] h-5 text-transparent rounded'>G</div>
+                    <h2 className='text-[#DB4444] text-[16px] font-semibold'>Our Products</h2>
                 </div>
+
+                <div className='flex flex-col md:flex-row justify-between items-center'>
+                    <h3 className='text-[32px] font-bold'>Explore Our Products</h3>
+                </div>
+
+                {/* Product Grid */}
                 <div
                     ref={scrollContainerRef}
-                    className='my-10 flex flex-col md:flex-row md:flex-wrap items-center'
+                    className='my-10 flex flex-wrap justify-center gap-6'
                 >
-                    {loadingProducts ? (
-                        <div className="text-[16px] font-bold text-gray-400 w-full text-center">Loading flash sales products...</div>
-                    ) : errorProducts ? (
-                        <div className="text-[16px] font-normal text-red-500 w-full text-center">{errorProducts}</div>
-                    ) : products.length === 0 ? (
-                        <div className="text-[16px] font-normal text-gray-600 w-full text-center">No flash sales active right now. Check back soon!</div>
-                    ) : (
-                        products.map((item) => (
-                            <Product
-                                key={item.id}
-                                product={item}
-                                // id={item.id}
-                                // discountPercentage={item.discountPercentage}
-                                // colour={item.colour}
-                                // productName={item.productName}
-                                // discountPrice={item.discountPrice}
-                                // productImage={item.productImage}
-                                // rateno={item.rateno}
-                                // rating={item.ratingStars}
-                                // description={item.description}
-                                // state={item.state}
-                                // img1={item.img1}
-                                // img2={item.img2}
-                                // img3={item.img3}
-                                // img4={item.img4}
-                                // productcolour1={item.productcolour1}
-                                // productcolour2={item.productcolour2}
-                                // productcolour3={item.productcolour3}
-                                // size={item.size}
-                                // sizeA={item.sizeA}
-                                // sizeB={item.sizeB}
-                                // sizeC={item.sizeC}
-                                // sizeD={item.sizeD}
-                                // sizeE={item.sizeE}
-                                // sizeF={item.sizeF}
-                                // sizeG={item.sizeG}
-                            />
-                        ))
+                    {loading && (
+                        <p className="text-[16px] font-bold text-gray-400 w-full text-center">
+                            Loading products...
+                        </p>
                     )}
+                    {error && (
+                        <p className="text-[16px] font-normal text-red-500 w-full text-center">
+                            {error}
+                        </p>
+                    )}
+                    {!loading && !error && products.length === 0 && (
+                        <p className="text-[16px] font-normal text-gray-600 w-full text-center">
+                            No products available. Check back soon!
+                        </p>
+                    )}
+                    {!loading && !error && products.map(product => (
+                        <Product key={product.id} product={product} />
+                    ))}
                 </div>
             </div>
-        </div>
-        </div>
+        </section>
     );
 };
 
-export default AllProducts
+export default AllProducts;
+

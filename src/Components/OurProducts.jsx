@@ -1,128 +1,104 @@
+// src/Components/OurProducts.jsx
 import React, { useState, useEffect, useRef } from 'react';
+import Product from './Product';
 import leftbutton from '../assets/leftbutton.svg';
 import rightbutton from '../assets/rightbutton.svg';
-import Product from './Product';
 import { Link } from 'react-router-dom';
 
 const OurProducts = () => {
-    const scrollContainerRef = useRef(null);
-    const [products, setProducts] = useState([]);
-    const [loadingProducts, setLoadingProducts] = useState(true);
-    const [errorProducts, setErrorProducts] = useState(null);
+  const scrollRef = useRef(null);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    const scrollAmount = 270;
-    const scrollLeft = () => {
-        if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
-            });
-        }
+  const scrollAmount = 270;
+
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current?.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch('http://localhost:8080/api/products');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const data = await response.json();
+        setProducts(data);
+      } catch (err) {
+        console.error('Failed to fetch products:', err);
+        setError(`Failed to load products: ${err.message}`);
+      } finally {
+        setLoading(false);
+      }
     };
 
-    const scrollRight = () => {
-        if (scrollContainerRef.current) {
-            scrollContainerRef.current.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    };
+    fetchProducts();
+  }, []);
 
-
-    useEffect(() => {
-        const fetchProducts = async () => {
-            setLoadingProducts(true);
-            setErrorProducts(null);
-            try {
-                const response = await fetch('/products.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-                setProducts(data);
-            } catch (err) {
-                console.error('Failed to fetch flash sales products:', err);
-                setErrorProducts(`Failed to load products: ${err.message}.`);
-                setProducts([]);
-            } finally {
-                setLoadingProducts(false);
-            }
-        };
-
-        fetchProducts();
-    }, []);
-
-
-    return (
-        <div className='w-[96%] my-8 items-center justify-self-center'>
-            <div>
-                <div className='flex flex-col flex-wrap w-full' >
-                    <div className='flex w-full space-x-5 items-center'>
-                        <div className='w-[20px] h-[40px] rounded bg-[#DB4444] text-transparent'>G</div>
-                        <div className=''><p className='text-[16px] text-[#DB4444] font-semibold '>Our Products</p></div>
-                    </div>
-                    <div className='flex flex-col md:flex-row w-full justify-between items-center'>
-                        <h3 className='text-[32px] font-bold'>Explore Our Products</h3>
-                        <div className='flex items-center justify justify-self-end'>
-                            <button id='scrollLeft'><img onClick={scrollLeft} src={leftbutton} alt="Scroll Left" className='mr-2 w-[46px]'/></button>
-                            <button id='scrollRight'><img onClick={scrollRight} src={rightbutton} alt="Scroll Right" className='w-[46px]'/></button>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    ref={scrollContainerRef}
-                    className='mt-5 w-full overflow-x-auto scroll-smooth scrollbar-hide no-scrollbar'
-                >
-                    <div className='grid grid-flow-col grid-rows-2' style={{ width: `${products.length * 50}px` }}>
-                    {loadingProducts ? (
-                        <div className="text-[16px] font-bold text-gray-400 w-full text-center">Loading flash sales products...</div>
-                    ) : errorProducts ? (
-                        <div className="text-[16px] font-normal text-red-500 w-full text-center">{errorProducts}</div>
-                    ) : products.length === 0 ? (
-                        <div className="text-[16px] font-normal text-gray-600 w-full text-center">No Products available right now. Check back soon!</div>
-                    ) : (
-                        products.slice(0, 20).map((item) => (
-                            <Product
-                                key={item.id}
-                                product={item}
-                                // id={item.id}
-                                // discountPercentage={item.discountPercentage}
-                                // colour={item.colour}
-                                // productName={item.productName}
-                                // discountPrice={item.discountPrice}
-                                // productImage={item.productImage}
-                                // rateno={item.rateno}
-                                // rating={item.ratingStars}
-                                // description={item.description}
-                                // state={item.state}
-                                // img1={item.img1}
-                                // img2={item.img2}
-                                // img3={item.img3}
-                                // img4={item.img4}
-                                // productcolour1={item.productcolour1}
-                                // productcolour2={item.productcolour2}
-                                // productcolour3={item.productcolour3}
-                                // size={item.size}
-                                // sizeA={item.sizeA}
-                                // sizeB={item.sizeB}
-                                // sizeC={item.sizeC}
-                                // sizeD={item.sizeD}
-                                // sizeE={item.sizeE}
-                                // sizeF={item.sizeF}
-                                // sizeG={item.sizeG}
-                            />
-                            
-                        ))
-                    )}
-                    </div>
-                </div>
-                <div className='justify-self-center items-center mt-10 text-center'>
-                   <Link to='/explore-products'><button type='button' className='text-white rounded-sm py-3 px-10 bg-[#DB4444]'>View All Products</button></Link>
-                </div>
-            </div>
+  return (
+    <section className="w-[96%] my-8 mx-auto">
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-3">
+          <div className="w-[20px] h-[40px] bg-[#DB4444] rounded text-transparent">G</div>
+          <p className="text-[16px] text-[#DB4444] font-semibold">Our Products</p>
         </div>
-    );
+
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <h3 className="text-[32px] font-bold">Explore Our Products</h3>
+          <div className="flex gap-2 mt-4 md:mt-0">
+            <button onClick={scrollLeft}>
+              <img src={leftbutton} alt="Scroll Left" className="w-[46px]" />
+            </button>
+            <button onClick={scrollRight}>
+              <img src={rightbutton} alt="Scroll Right" className="w-[46px]" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        ref={scrollRef}
+        className="mt-6 overflow-x-auto scroll-smooth scrollbar-hide no-scrollbar pb-4"
+      >
+        <div className="grid grid-flow-col auto-cols-max gap-5">
+          {loading && (
+            <p className="text-[16px] font-bold text-gray-400 w-full text-center">
+              Loading products...
+            </p>
+          )}
+          {error && (
+            <p className="text-[16px] font-normal text-red-500 w-full text-center">
+              {error}
+            </p>
+          )}
+          {!loading && !error && products.length === 0 && (
+            <p className="text-[16px] font-normal text-gray-600 w-full text-center">
+              No products available. Check back soon!
+            </p>
+          )}
+          {!loading &&
+            !error &&
+            products.slice(0, 20).map((product) => (
+              <Product key={product.id} product={product} />
+            ))}
+        </div>
+      </div>
+
+      <div className="mt-10 text-center">
+        <Link to="/explore-products">
+          <button className="text-white bg-[#DB4444] py-3 px-10 rounded-sm hover:bg-red-600 transition">
+            View All Products
+          </button>
+        </Link>
+      </div>
+    </section>
+  );
 };
 
 export default OurProducts;

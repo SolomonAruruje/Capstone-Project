@@ -15,11 +15,11 @@ const Navbar = () => {
     const handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    const searchInput = event.target.elements.searchBar; // Access the input by its 'name'
+    const searchInput = event.target.elements.searchBar; 
     const keyword = searchInput.value.trim();
 
     if (keyword) {
-      // Encode the keyword to handle special characters in the URL
+      
       navigate(`/categories/${encodeURIComponent(keyword)}`);
     }
   };

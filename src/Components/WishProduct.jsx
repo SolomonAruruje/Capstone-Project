@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import deleteBt from '../assets/delete.svg';
-import quickView from '../assets/quickView.svg';
+import quickView from '../assets/quickview.svg';
 import Stars from './Stars';
 
 const WishProduct = ({ product }) => {

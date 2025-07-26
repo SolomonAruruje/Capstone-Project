@@ -16,7 +16,7 @@ const Homepage = () => {
         <Banner1/>
         <FlashSales/>
         <Categories/>
-        <BestSellingProducts/>
+        {/* <BestSellingProducts/> */}
         <OurProducts/>
         <NewArrival/>
         <Services/>
