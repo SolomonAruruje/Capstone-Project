@@ -29,19 +29,19 @@ export const AuthProvider = ({ children }) => {
         if (storedToken) {
             setAuthHeader(storedToken);
             try {
-                // Attempt to fetch fresh user data from backend to validate token and get latest profile
+                
                 const response = await axios.get(`${API_BASE_URL}/users/me`);
                 const userData = response.data;
                 setUser(userData);
                 setIsAuthenticated(true);
-                localStorage.setItem('user', JSON.stringify(userData)); // Ensure local storage is up-to-date
+                localStorage.setItem('user', JSON.stringify(userData)); 
             } catch (error) {
                 console.error('Failed to verify token or fetch user data:', error);
-                // If token is invalid or expired, clear session
+                
                 logout();
             }
         }
-        setLoading(false); // Finished initial loading check
+        setLoading(false); 
     }, []);
 
     useEffect(() => {
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
 
     /**
      * Updates the user data in the context and local storage.
-     * Use this when a user's profile information (like address) changes on the backend.
+     * Uses this when a user's profile information (like address) changes on the backend.
      * @param {object} updatedUserData - A partial user object with fields to update.
      */
     const updateUser = (updatedUserData) => {

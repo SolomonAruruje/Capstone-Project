@@ -28,8 +28,7 @@ const CartProduct2 = ({
             return;
         }
         
-        // No need for a pop-up here, the UI will update
-        // and the user will see the remaining stock
+        
         if (parsedNewQuantity > parsedMaxQuantity) {
              updateQuantity(id, parsedMaxQuantity, parsedMaxQuantity);
              return;

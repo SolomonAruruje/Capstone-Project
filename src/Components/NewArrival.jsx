@@ -11,8 +11,8 @@ const NewArrival = () => {
             setLoadingNewArrivalBanners(true);
             setErrorNewArrivalBanners(null);
             try {
-                // --- INSERT YOUR ACTUAL BACKEND API ADDRESS HERE ---
-                const API_ENDPOINT = '/NewArrivals.json'; // <--- CHANGE THIS LINE
+                // --- TO INSERT  BACKEND API ADDRESS HERE ---
+                const API_ENDPOINT = '/NewArrivals.json'; 
 
                 const response = await fetch(API_ENDPOINT);
 
