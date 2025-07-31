@@ -1,4 +1,3 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import HomePage from './Pages/Homepage.jsx';
@@ -19,7 +18,7 @@ import JustForAll from './Components/JustForAll.jsx';
 import CheckoutPage from './Pages/CheckoutPage.jsx';
 import ProductDetailsPage from './Pages/ProductDetailsPage.jsx';
 import Cart from './Pages/Cart.jsx';
-
+import OrderConfirmationPage from './Pages/OrderConfirmationPage.jsx'; // Add this import
 
 const App = () => {
   return (
@@ -40,15 +39,12 @@ const App = () => {
           <Route path='/checkout' element={<CheckoutPage/>}/>
           <Route path="/product-details/:productId" element={<ProductDetailsPage />} />
           <Route path='/cart' element={<Cart/>}/>
-
-          {/* <Route path="/manage-account" element={<ManageAccount />} /> */}
-
+          
+          {/* Add the new route for order confirmation */}
+          <Route path='/order-confirmation' element={<OrderConfirmationPage />} />
 
           <Route element={<PrivateRoute />}>
             <Route path="/manage-account" element={<ManageAccount />} />
-            {/* Add any other pages you want to protect here */}
-            {/* <Route path="/checkout" element={<CheckoutPage />} /> */}
-            {/* <Route path="/order-history" element={<OrderHistoryPage />} /> */}
           </Route>
 
           <Route path="*" element={<NotFoundPage />} />
